@@ -1,0 +1,62 @@
+{
+    "name": "spryker-academy/contact-request",
+    "description": "Spryker Academy ContactRequest Training Module - Learn Spryker fundamentals through progressive exercises",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Spryker Academy",
+            "email": "academy@spryker.com"
+        }
+    ],
+    "keywords": [
+        "spryker",
+        "training",
+        "tutorial",
+        "contact-request",
+        "learning"
+    ],
+    "require": {
+        "php": ">=8.4",
+        "spryker/kernel": "^3.0.0",
+        "spryker/symfony": "^3.0.0",
+        "spryker/gui": "^3.0.0 || ^4.0.0",
+        "spryker/propel-orm": "^1.0.0"
+    },
+    "require-dev": {
+        "spryker/code-sniffer": "*",
+        "spryker/testify": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SprykerAcademy\\": "src/SprykerAcademy/",
+            "Orm\\": "src/Orm/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SprykerAcademyTest\\": "tests/SprykerAcademyTest/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev",
+            "dev-basics/contact-request-back-office/skeleton": "1.0-dev",
+            "dev-basics/contact-request-back-office/complete": "1.0.x-dev",
+            "dev-basics/data-transfer-object/skeleton": "2.0-dev",
+            "dev-basics/data-transfer-object/complete": "2.0.x-dev",
+            "dev-basics/message-table-schema/skeleton": "3.0-dev",
+            "dev-basics/message-table-schema/complete": "3.0.x-dev",
+            "dev-basics/module-layers/skeleton": "4.0-dev",
+            "dev-basics/module-layers/complete": "4.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
