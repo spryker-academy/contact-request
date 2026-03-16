@@ -1,0 +1,105 @@
+{% extends molecule('navigation-sidebar', 'ShopUi') %}
+
+{% define data = {
+    items: [
+        {
+            name: 'overview',
+            url: path('customer/overview'),
+            label: 'customer.account.overview' | trans,
+            icon: 'page',
+        },
+        {
+            name: 'profile',
+            url: path('customer/profile'),
+            label: 'customer.account.profile_data' | trans,
+            icon: 'user',
+        },
+        {
+            name: 'address',
+            url: path('customer/address'),
+            label: 'customer.account.address' | trans,
+            icon: 'marker',
+        },
+        {
+            name: 'order',
+            url: path('customer/order'),
+            label: 'customer.account.order_history' | trans,
+            icon: 'history',
+        },
+        {
+            name: 'return',
+            url: path('return/list'),
+            label: 'return_page.list.title' | trans,
+            icon: 'return-arrow',
+            isActiveItem:  'return/list' == data.activePage | default,
+        },
+        {
+            name: 'newsletter',
+            url: path('customer/newsletter'),
+            label: 'customer.account.newsletter' | trans,
+            icon: 'envelopes',
+        },
+        {
+            name: 'messages',
+            url: path('customer/messages'),
+            label: 'My Contact Requests',
+            icon: 'envelopes',
+        },
+    ]
+} %}
+
+{% block postContent %}
+    {% widget 'ShoppingListMenuItemWidget' args [
+        data.activePage,
+        data.activeEntityId,
+    ] only %}
+    {% endwidget %}
+
+    {% widget 'MultiCartMenuItemWidget' args [data.activePage] only %}{% endwidget %}
+
+    {% widget 'QuoteRequestMenuItemWidget' args [data.activePage] only %}{% endwidget %}
+
+    {% widget 'BusinessOnBehalfStatusWidget' use view('change-company-user', 'BusinessOnBehalfWidget') with {
+        isActivePage: 'change-company-user' == data.activePage
+    } only %}
+        {% block body %}
+            {% include molecule('navigation-sidebar-item') with {
+                data: {
+                    url: path('company/user/select'),
+                    icon: 'building',
+                    label: 'business_on_behalf_widget.no_selected_company' | trans,
+                    name: 'no-company',
+                    active: isActivePage,
+                },
+                modifiers: isActivePage ? ['active'] : [],
+            } only %}
+        {% endblock %}
+    {% endwidget %}
+
+    {% if widgetGlobalExists('SetMultiFactorAuthMenuItemWidget') %}
+        {% widget 'SetMultiFactorAuthMenuItemWidget' args [data.activePage] only %}{% endwidget %}
+    {% endif %}
+{% endblock %}
+{% block body %}
+    {% if
+            can('ViewDashboardPermissionPlugin') or
+            can('ViewCompanyBusinessUnitFilesPermissionPlugin') or
+            can('ViewCompanyFilesPermissionPlugin') or
+            can('ViewBusinessUnitSspAssetPermissionPlugin') or
+            can('ViewCompanySspAssetPermissionPlugin') or
+            can('ViewBusinessUnitSspServicePermissionPlugin') or
+            can('ViewCompanySspServicePermissionPlugin') or
+            can('ViewBusinessUnitSspInquiryPermissionPlugin') or
+            can('ViewCompanySspInquiryPermissionPlugin')
+        %}
+        <div class="title--h5 spacing-bottom">
+            <strong>{{ 'self_service_portal.customer_navigation.title' | trans }}</strong>
+        </div>
+        <ul class="{{ _self.renderClass(config.name ~ '__list', modifiers) }} spacing-bottom--biggest">
+            {% widget 'SspListMenuItemWidget' args [data.activePage] only %}{% endwidget %}
+        </ul>
+    {% endif %}
+
+    <div class="title--h5 spacing-bottom"><strong>{{ 'customer.customer_navigation.title' | trans }}</strong></div>
+    {{ parent() }}
+{% endblock %}

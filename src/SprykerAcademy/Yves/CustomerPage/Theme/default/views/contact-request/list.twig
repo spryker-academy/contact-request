@@ -1,0 +1,59 @@
+{% extends template('page-layout-customer', 'CustomerPage') %}
+
+{% define data = {
+    messages: _view.contactRequests,
+    contactRequestForm: _view.contactRequestForm,
+    activePage: 'contact-requests'
+} %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <h4>My Contact Requests</h4>
+
+        {% if data.contactRequests is not empty %}
+            <table class="table table--expand">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Message</th>
+                        <th>Created</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contactRequest in data.contactRequests %}
+                        <tr>
+                            <td>{{ contactRequest.idContactRequest }}</td>
+                            <td>{{ contactRequest.message }}</td>
+                            <td>{{ contactRequest.createdAt | date('Y-m-d H:i') }}</td>
+                            <td>
+                                <form method="post" action="{{ path('customer/messages/delete') }}" style="display:inline">
+                                    <input type="hidden" name="idContactRequest" value="{{ contactRequest.idContactRequest }}">
+                                    <button type="submit" class="button button--hollow button--alert button--small">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You have no contact requests yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        <h4>Add a New Contact Request</h4>
+        {{ form_start(data.contactRequestForm) }}
+            <div class="form spacing-bottom">
+                {{ form_widget(data.contactRequestForm.message) }}
+            </div>
+            <button type="submit" class="button button--expand-sm-only button--success">
+                Add Contact Request
+            </button>
+        {{ form_end(data.contactRequestForm) }}
+    </div>
+{% endblock %}
