@@ -1,10 +1,10 @@
-{% extends template('page-blank') %}
+{% extends template('page-layout-main') %}
 
 {% define data = {
     message: _view.message
 } %}
 
-{% block body %}
+{% block content %}
     {% if data.message is not null %}
         My message is: {{ data.message.message }}
     {% else %}
