@@ -68,8 +68,8 @@ class IndexControllerTest extends Unit
         $source = file_get_contents($reflectionMethod->getFileName());
 
         $this->assertNotFalse(
-            strpos($source, 'Contact Requests'),
-            'indexAction() must contain the string "Hello World!". Use viewResponse() to return it.',
+            strpos($source, 'Contact Request!'),
+            'indexAction() must contain the string "Contact Request!". Use viewResponse() to return it.',
         );
     }
 
