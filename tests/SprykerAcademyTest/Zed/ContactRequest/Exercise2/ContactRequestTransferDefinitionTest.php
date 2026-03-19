@@ -9,14 +9,14 @@ use Codeception\Test\Unit;
 /**
  * Exercise 2: Data Transfer Object
  *
- * Verifies that students defined a Message transfer with the correct
- * properties in helloworld.transfer.xml.
+ * Verifies that students defined a ContactRequest transfer with the correct
+ * properties in contact_request.transfer.xml.
  *
  * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/ContactRequest/ Exercise2
  */
 class ContactRequestTransferDefinitionTest extends Unit
 {
-    private const TRANSFER_XML_RELATIVE_PATH = 'src/SprykerAcademy/Shared/ContactRequest/Transfer/helloworld.transfer.xml';
+    private const TRANSFER_XML_RELATIVE_PATH = 'src/SprykerAcademy/Shared/ContactRequest/Transfer/contact_request.transfer.xml';
 
     private function findTransferXmlPath(): string
     {
@@ -37,7 +37,7 @@ class ContactRequestTransferDefinitionTest extends Unit
         }
 
         $this->fail(
-            'Cannot find helloworld.transfer.xml. Expected at: ' . self::TRANSFER_XML_RELATIVE_PATH,
+            'Cannot find contact_request.transfer.xml. Expected at: ' . self::TRANSFER_XML_RELATIVE_PATH,
         );
     }
 
@@ -45,7 +45,7 @@ class ContactRequestTransferDefinitionTest extends Unit
     {
         $path = $this->findTransferXmlPath();
         $xml = simplexml_load_file($path);
-        $this->assertNotFalse($xml, 'Failed to parse helloworld.transfer.xml.');
+        $this->assertNotFalse($xml, 'Failed to parse contact_request.transfer.xml.');
 
         return $xml;
     }
@@ -70,11 +70,11 @@ class ContactRequestTransferDefinitionTest extends Unit
 
         $this->assertNotEmpty(
             $transfers,
-            'A <transfer name="ContactRequest"> definition is missing in helloworld.transfer.xml.',
+            'A <transfer name="ContactRequest"> definition is missing in contact_request.transfer.xml.',
         );
     }
 
-    public function testContactRequestTransferHasIdMessageProperty(): void
+    public function testContactRequestTransferHasIdContactRequestProperty(): void
     {
         $xml = $this->loadTransferXml();
         $xml->registerXPathNamespace('t', 'spryker:transfer-01');
@@ -87,14 +87,14 @@ class ContactRequestTransferDefinitionTest extends Unit
 
         $this->assertNotEmpty(
             $properties,
-            'Message transfer must have a property named "idMessage".',
+            'ContactRequest transfer must have a property named "idContactRequest".',
         );
 
         $type = (string)$properties[0]['type'];
         $this->assertSame(
             'int',
             $type,
-            'Property "idMessage" must be of type "int", got "' . $type . '".',
+            'Property "idContactRequest" must be of type "int", got "' . $type . '".',
         );
     }
 
@@ -111,7 +111,7 @@ class ContactRequestTransferDefinitionTest extends Unit
 
         $this->assertNotEmpty(
             $properties,
-            'Message transfer must have a property named "message".',
+            'ContactRequest transfer must have a property named "message".',
         );
 
         $type = (string)$properties[0]['type'];
