@@ -12,13 +12,16 @@ namespace SprykerAcademy\Zed\ContactRequest\Communication\Controller;
 use Generated\Shared\Transfer\ContactRequestCriteriaTransfer;
 use Generated\Shared\Transfer\ContactRequestTransfer;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
+use SprykerAcademy\Zed\ContactRequest\Business\ContactRequestFacadeInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-/**
- * @method \SprykerAcademy\Zed\ContactRequest\Business\ContactRequestFacadeInterface getFacade()
- */
 class IndexController extends AbstractController
 {
+    public function __construct(
+        private readonly ContactRequestFacadeInterface $contactRequestFacade,
+    ) {
+    }
+
     /**
      * @return array<string, mixed>
      */
@@ -43,7 +46,7 @@ class IndexController extends AbstractController
         $contactRequestCriteriaTransfer = new ContactRequestCriteriaTransfer();
         $contactRequestCriteriaTransfer->setMessage($message);
 
-        $contactRequestResponseTransfer = $this->getFacade()
+        $contactRequestResponseTransfer = $this->contactRequestFacade
             ->findContactRequest($contactRequestCriteriaTransfer);
 
         $contactRequestTransfer = $contactRequestResponseTransfer->getContactRequest();
@@ -52,7 +55,7 @@ class IndexController extends AbstractController
             $contactRequestTransfer = new ContactRequestTransfer();
             $contactRequestTransfer->setMessage($message);
 
-            $contactRequestTransfer = $this->getFacade()->createContactRequest($contactRequestTransfer);
+            $contactRequestTransfer = $this->contactRequestFacade->createContactRequest($contactRequestTransfer);
         }
 
         return $this->viewResponse([
