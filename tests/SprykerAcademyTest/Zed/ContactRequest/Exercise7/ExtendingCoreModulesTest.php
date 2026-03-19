@@ -432,8 +432,8 @@ class ExtendingCoreModulesTest extends Unit
     private function findTransferPath(): string
     {
         $paths = [
-            __DIR__ . '/../../../../src/SprykerAcademy/Shared/ContactRequest/Transfer/helloworld.transfer.xml',
-            getcwd() . '/src/SprykerAcademy/Shared/ContactRequest/Transfer/helloworld.transfer.xml',
+            __DIR__ . '/../../../../src/SprykerAcademy/Shared/ContactRequest/Transfer/contact_request.transfer.xml',
+            getcwd() . '/src/SprykerAcademy/Shared/ContactRequest/Transfer/contact_request.transfer.xml',
         ];
 
         foreach ($paths as $path) {
@@ -442,6 +442,6 @@ class ExtendingCoreModulesTest extends Unit
             }
         }
 
-        $this->fail('Could not find helloworld.transfer.xml');
+        $this->fail('Could not find contact_request.transfer.xml');
     }
 }
