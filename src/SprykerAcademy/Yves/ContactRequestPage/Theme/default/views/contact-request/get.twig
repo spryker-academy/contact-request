@@ -6,7 +6,7 @@
 
 {% block body %}
     {% if data.message is not null %}
-        My message is: {{ data.contactRequest.message }}
+        My message is: {{ data.message.message }}
     {% else %}
         No message found :(
     {% endif %}
