@@ -46,12 +46,12 @@ class ContactRequestReaderTest extends Unit
             'findContactRequest() must return isSuccessful=true when a message is found.',
         );
         $this->assertNotNull(
-            $response->getMessage(),
-            'findContactRequest() must set the message on the response when found.',
+            $response->getContactRequest(),
+            'findContactRequest() must set the contactRequest on the response when found.',
         );
         $this->assertSame(
             'Hello',
-            $response->getMessage()->getMessage(),
+            $response->getContactRequest()->getMessage(),
             'The returned message must match the one from the Repository.',
         );
     }
