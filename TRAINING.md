@@ -6,14 +6,14 @@ Complete training progression for the Spryker Academy ContactRequest module.
 
 | Module | Version | Branch | Duration | Difficulty |
 |--------|---------|--------|----------|-----------|
-| Hello World Back Office | v1.0 | `ilt/202512.0/basics/contact-request-back-office` | 30 min | ⭐☆☆☆☆ |
+| Contact Request Back Office | v1.0 | `ilt/202512.0/basics/contact-request-back-office` | 30 min | ⭐☆☆☆☆ |
 | Data Transfer Objects | v2.0 | `ilt/202512.0/basics/data-transfer-object` | 45 min | ⭐⭐☆☆☆ |
 | Message Table Schema | v3.0 | `ilt/202512.0/basics/message-table-schema` | 1 hour | ⭐⭐☆☆☆ |
 | Module Layers | v4.0 | `ilt/202512.0/basics/module-layers` | 2 hours | ⭐⭐⭐☆☆ |
 
 ---
 
-## Module 1: Hello World Back Office
+## Module 1: Contact Request Back Office
 
 ### 🎯 Learning Objectives
 - Understand Spryker module structure
@@ -79,7 +79,7 @@ composer require spryker-academy/contact-request:2.0.0-skeleton
 
 1. Create Transfer definition XML:
    ```
-   src/SprykerAcademy/Shared/ContactRequest/Transfer/helloworld.transfer.xml
+   src/SprykerAcademy/Shared/ContactRequest/Transfer/contact_request.transfer.xml
    ```
 
 2. Define `ContactRequestMessage` transfer with properties:
