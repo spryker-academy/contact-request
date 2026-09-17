@@ -7,7 +7,7 @@ namespace SprykerAcademyTest\Zed\ContactRequest\Exercise1;
 use Codeception\Test\Unit;
 
 /**
- * Exercise 1: Hello World Back Office
+ * Exercise 1: Contact Request Back Office
  *
  * Verifies that students created a IndexController with an indexAction
  * that returns 'Contact Requests' via viewResponse().
@@ -69,7 +69,7 @@ class IndexControllerTest extends Unit
 
         $this->assertNotFalse(
             strpos($source, 'Contact Requests'),
-            'indexAction() must contain the string "Hello World!". Use viewResponse() to return it.',
+            'indexAction() must contain the string "Contact Requests". Use viewResponse() to return it.',
         );
     }
 

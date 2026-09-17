@@ -9,7 +9,7 @@ Learn Spryker fundamentals through progressive exercises building a complete Con
 
 This training module covers the essential Spryker concepts through 4 progressive exercises:
 
-1. **Hello World Back Office** - Create your first Zed controller and view
+1. **Contact Request Back Office** - Create your first Zed controller and view
 2. **Data Transfer Objects** - Implement type-safe data handling with Transfer objects
 3. **Message Table Schema** - Work with Propel ORM and database schemas
 4. **Module Layers** - Build a complete module with Client, Zed, and Yves layers
@@ -42,7 +42,7 @@ composer require spryker-academy/contact-request:dev-ilt/202512.0/basics/contact
 
 ## 🚀 Training Progression
 
-### Module 1: Hello World Back Office (v1.0)
+### Module 1: Contact Request Back Office (v1.0)
 
 **What You'll Build:**
 - Zed controller with index action
