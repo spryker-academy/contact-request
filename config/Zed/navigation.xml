@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <config>
     <contact-request>
-        <label>Hello World</label>
-        <title>Hello World</title>
+        <label>Contact Request</label>
+        <title>Contact Request</title>
         <bundle>contact-request</bundle>
-        <controller>hello</controller>
+        <controller>index</controller>
         <action>index</action>
     </contact-request>
 </config>
