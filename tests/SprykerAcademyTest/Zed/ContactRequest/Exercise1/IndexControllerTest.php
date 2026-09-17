@@ -7,7 +7,7 @@ namespace SprykerAcademyTest\Zed\ContactRequest\Exercise1;
 use Codeception\Test\Unit;
 
 /**
- * Exercise 1: Hello World Back Office
+ * Exercise 1: Contact Request Back Office
  *
  * Verifies that students created a IndexController with an indexAction
  * that returns 'Contact Requests' via viewResponse().
