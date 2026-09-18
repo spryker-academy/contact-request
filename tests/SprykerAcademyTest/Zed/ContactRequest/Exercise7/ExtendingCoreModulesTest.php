@@ -57,8 +57,8 @@ class ExtendingCoreModulesTest extends Unit
         $xml = simplexml_load_file($transferPath);
         $xml->registerXPathNamespace('t', 'spryker:transfer-01');
 
-        $props = $xml->xpath("//t:transfer[@name='Message']/t:property[@name='fkCustomer']");
-        $this->assertCount(1, $props, 'Message transfer must have a fkCustomer property.');
+        $props = $xml->xpath("//t:transfer[@name='ContactRequest']/t:property[@name='fkCustomer']");
+        $this->assertCount(1, $props, 'ContactRequest transfer must have a fkCustomer property.');
         $this->assertEquals('int', (string)$props[0]['type'], 'fkCustomer must be of type int.');
     }
 
@@ -68,8 +68,8 @@ class ExtendingCoreModulesTest extends Unit
         $xml = simplexml_load_file($transferPath);
         $xml->registerXPathNamespace('t', 'spryker:transfer-01');
 
-        $props = $xml->xpath("//t:transfer[@name='MessageCriteria']/t:property[@name='fkCustomer']");
-        $this->assertCount(1, $props, 'MessageCriteria transfer must have a fkCustomer property.');
+        $props = $xml->xpath("//t:transfer[@name='ContactRequestCriteria']/t:property[@name='fkCustomer']");
+        $this->assertCount(1, $props, 'ContactRequestCriteria transfer must have a fkCustomer property.');
         $this->assertEquals('int', (string)$props[0]['type'], 'fkCustomer must be of type int.');
     }
 
@@ -79,12 +79,12 @@ class ExtendingCoreModulesTest extends Unit
         $xml = simplexml_load_file($transferPath);
         $xml->registerXPathNamespace('t', 'spryker:transfer-01');
 
-        $transfers = $xml->xpath("//t:transfer[@name='MessageCollection']");
-        $this->assertCount(1, $transfers, 'A MessageCollection transfer must be defined.');
+        $transfers = $xml->xpath("//t:transfer[@name='ContactRequestCollection']");
+        $this->assertCount(1, $transfers, 'A ContactRequestCollection transfer must be defined.');
 
-        $props = $xml->xpath("//t:transfer[@name='MessageCollection']/t:property[@name='messages']");
-        $this->assertCount(1, $props, 'MessageCollection must have a messages property.');
-        $this->assertEquals('Message[]', (string)$props[0]['type'], 'messages property must be of type Message[].');
+        $props = $xml->xpath("//t:transfer[@name='ContactRequestCollection']/t:property[@name='contactRequests']");
+        $this->assertCount(1, $props, 'ContactRequestCollection must have a contactRequests property.');
+        $this->assertEquals('ContactRequest[]', (string)$props[0]['type'], 'contactRequests property must be of type Message[].');
     }
 
     // --- Part 3: GatewayController ---
@@ -94,8 +94,8 @@ class ExtendingCoreModulesTest extends Unit
         $class = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\GatewayController';
         $this->assertTrue(class_exists($class), 'GatewayController must exist.');
         $this->assertTrue(
-            method_exists($class, 'createMessageAction'),
-            'GatewayController must have a createMessageAction() method.',
+            method_exists($class, 'createContactRequestAction'),
+            'GatewayController must have a createContactRequestAction() method.',
         );
     }
 
@@ -104,8 +104,8 @@ class ExtendingCoreModulesTest extends Unit
         $class = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\GatewayController';
         $this->assertTrue(class_exists($class), 'GatewayController must exist.');
         $this->assertTrue(
-            method_exists($class, 'getMessagesByCustomerAction'),
-            'GatewayController must have a getMessagesByCustomerAction() method.',
+            method_exists($class, 'getContactRequestsByCustomerAction'),
+            'GatewayController must have a getContactRequestsByCustomerAction() method.',
         );
     }
 
@@ -116,7 +116,7 @@ class ExtendingCoreModulesTest extends Unit
         $class = 'SprykerAcademy\Client\ContactRequest\Stub\ContactRequestStub';
         $this->assertTrue(class_exists($class), 'ContactRequestStub must exist.');
         $this->assertTrue(
-            method_exists($class, 'createMessage'),
+            method_exists($class, 'createContactRequest'),
             'ContactRequestStub must have a createContactRequest() method.',
         );
     }
@@ -126,7 +126,7 @@ class ExtendingCoreModulesTest extends Unit
         $class = 'SprykerAcademy\Client\ContactRequest\Stub\ContactRequestStub';
         $this->assertTrue(class_exists($class), 'ContactRequestStub must exist.');
         $this->assertTrue(
-            method_exists($class, 'getMessagesByCustomer'),
+            method_exists($class, 'getContactRequestsByCustomer'),
             'ContactRequestStub must have a getContactRequestsByCustomer() method.',
         );
     }
@@ -136,7 +136,7 @@ class ExtendingCoreModulesTest extends Unit
         $class = 'SprykerAcademy\Client\ContactRequest\ContactRequestClient';
         $this->assertTrue(class_exists($class), 'ContactRequestClient must exist.');
         $this->assertTrue(
-            method_exists($class, 'createMessage'),
+            method_exists($class, 'createContactRequest'),
             'ContactRequestClient must have a createContactRequest() method.',
         );
     }
@@ -146,7 +146,7 @@ class ExtendingCoreModulesTest extends Unit
         $class = 'SprykerAcademy\Client\ContactRequest\ContactRequestClient';
         $this->assertTrue(class_exists($class), 'ContactRequestClient must exist.');
         $this->assertTrue(
-            method_exists($class, 'getMessagesByCustomer'),
+            method_exists($class, 'getContactRequestsByCustomer'),
             'ContactRequestClient must have a getContactRequestsByCustomer() method.',
         );
     }
@@ -219,7 +219,7 @@ class ExtendingCoreModulesTest extends Unit
         $class = 'SprykerAcademy\Zed\ContactRequest\Persistence\ContactRequestRepository';
         $this->assertTrue(class_exists($class), 'ContactRequestRepository must exist.');
         $this->assertTrue(
-            method_exists($class, 'findMessagesByCustomer'),
+            method_exists($class, 'findContactRequestsByCustomer'),
             'ContactRequestRepository must have a findContactRequestsByCustomer() method.',
         );
     }
@@ -229,7 +229,7 @@ class ExtendingCoreModulesTest extends Unit
         $class = 'SprykerAcademy\Zed\ContactRequest\Business\ContactRequestFacade';
         $this->assertTrue(class_exists($class), 'ContactRequestFacade must exist.');
         $this->assertTrue(
-            method_exists($class, 'findMessagesByCustomer'),
+            method_exists($class, 'findContactRequestsByCustomer'),
             'ContactRequestFacade must have a findContactRequestsByCustomer() method.',
         );
     }
@@ -308,8 +308,8 @@ class ExtendingCoreModulesTest extends Unit
         $xml = simplexml_load_file($transferPath);
         $xml->registerXPathNamespace('t', 'spryker:transfer-01');
 
-        $props = $xml->xpath("//t:transfer[@name='Message']/t:property[@name='createdAt']");
-        $this->assertCount(1, $props, 'Message transfer must have a createdAt property.');
+        $props = $xml->xpath("//t:transfer[@name='ContactRequest']/t:property[@name='createdAt']");
+        $this->assertCount(1, $props, 'ContactRequest transfer must have a createdAt property.');
         $this->assertEquals('string', (string)$props[0]['type'], 'createdAt must be of type string.');
     }
 
@@ -331,7 +331,7 @@ class ExtendingCoreModulesTest extends Unit
     {
         $entityManagerMock = $this->createMock(ContactRequestEntityManagerInterface::class);
         $entityManagerMock->expects($this->once())
-            ->method('deleteMessage')
+            ->method('deleteContactRequest')
             ->with(42)
             ->willReturn(true);
 
@@ -344,15 +344,15 @@ class ExtendingCoreModulesTest extends Unit
     public function testFacadeHasDeleteMessageMethod(): void
     {
         $class = 'SprykerAcademy\Zed\ContactRequest\Business\ContactRequestFacade';
-        $this->assertTrue(method_exists($class, 'deleteMessage'), 'ContactRequestFacade must have a deleteContactRequest() method.');
+        $this->assertTrue(method_exists($class, 'deleteContactRequest'), 'ContactRequestFacade must have a deleteContactRequest() method.');
     }
 
     public function testGatewayControllerHasDeleteMessageAction(): void
     {
         $class = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\GatewayController';
         $this->assertTrue(
-            method_exists($class, 'deleteMessageAction'),
-            'GatewayController must have a deleteMessageAction() method.',
+            method_exists($class, 'deleteContactRequestAction'),
+            'GatewayController must have a deleteContactRequestAction() method.',
         );
     }
 
@@ -388,7 +388,7 @@ class ExtendingCoreModulesTest extends Unit
     {
         $class = 'SprykerAcademy\Client\ContactRequest\ContactRequestClient';
         $this->assertTrue(
-            method_exists($class, 'deleteMessage'),
+            method_exists($class, 'deleteContactRequest'),
             'ContactRequestClient must have a deleteContactRequest() method.',
         );
     }
