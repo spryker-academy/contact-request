@@ -25,7 +25,7 @@ class ContactRequestPageRouteProviderPlugin extends AbstractRouteProviderPlugin
 
     private function addContactRequestMessageGetRoute(RouteCollection $routeCollection): RouteCollection
     {
-        $route = $this->buildRoute('contact-request/{idContactRequest}', 'ContactRequestPage', 'Message', 'getAction');
+        $route = $this->buildRoute('contact-request/{idContactRequest}', 'ContactRequestPage', 'ContactRequest', 'getAction');
         $route = $route->setMethods(['GET']);
         $routeCollection->add(static::ROUTE_NAME_CONTACT_REQUEST, $route);
 
