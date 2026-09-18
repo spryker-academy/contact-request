@@ -20,7 +20,7 @@ class ContactRequestPageRouteProviderPlugin extends AbstractRouteProviderPlugin
     {
         // TODO: Replace the placeholders for module and controller name with the right naming
         // based on src/SprykerAcademy/Yves/ContactRequestPage/Controller/IndexController.php::getAction()
-        $route = $this->buildRoute('contact-request/message/{name}', '<module-name>', '<controller-name>', 'getAction');
+        $route = $this->buildRoute('contact-request/{idMessage}', '<module-name>', '<controller-name>', 'getAction');
         $route = $route->setMethods(['GET']);
         $routeCollection->add(static::ROUTE_NAME_CONTACT_REQUEST, $route);
 
