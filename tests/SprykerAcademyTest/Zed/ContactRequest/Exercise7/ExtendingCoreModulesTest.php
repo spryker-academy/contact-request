@@ -84,7 +84,7 @@ class ExtendingCoreModulesTest extends Unit
 
         $props = $xml->xpath("//t:transfer[@name='ContactRequestCollection']/t:property[@name='contactRequests']");
         $this->assertCount(1, $props, 'ContactRequestCollection must have a contactRequests property.');
-        $this->assertEquals('ContactRequest[]', (string)$props[0]['type'], 'contactRequests property must be of type Message[].');
+        $this->assertEquals('ContactRequest[]', (string)$props[0]['type'], 'contactRequests property must be of type ContactRequest[].');
     }
 
     // --- Part 3: GatewayController ---
