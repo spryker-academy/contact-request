@@ -18,22 +18,22 @@ use Spryker\Zed\Kernel\Communication\Controller\AbstractGatewayController;
  */
 class GatewayController extends AbstractGatewayController
 {
-    public function findMessageAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
+    public function findContactRequestAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
         return $this->getFacade()->findContactRequest($contactRequestCriteria);
     }
 
-    public function createMessageAction(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
+    public function createContactRequestAction(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
     {
         return $this->getFacade()->createContactRequest($contactRequestTransfer);
     }
 
-    public function getMessagesByCustomerAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestCollectionTransfer
+    public function getContactRequestsByCustomerAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestCollectionTransfer
     {
         return $this->getFacade()->findContactRequestsByCustomer($contactRequestCriteria);
     }
 
-    public function deleteMessageAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
+    public function deleteContactRequestAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
         $responseTransfer = new ContactRequestResponseTransfer();
         $deleted = $this->getFacade()->deleteContactRequest($contactRequestCriteria->getIdContactRequest());
