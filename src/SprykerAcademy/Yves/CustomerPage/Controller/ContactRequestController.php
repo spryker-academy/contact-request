@@ -49,7 +49,7 @@ class ContactRequestController extends AbstractCustomerController
                 'contactRequestForm' => $contactRequestForm->createView(),
             ],
             [],
-            '@CustomerPage/views/message/list.twig',
+            '@CustomerPage/views/contact-request/list.twig',
         );
     }
 
