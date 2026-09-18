@@ -25,7 +25,7 @@ class CustomerPageRouteProviderPlugin extends SprykerCustomerPageRouteProviderPl
 
     protected function addCustomerContactRequestsRoute(RouteCollection $routeCollection): RouteCollection
     {
-        // TODO: Build a route for '/customer/contact-requests' pointing to CustomerPage module, Message controller, listAction
+        // TODO: Build a route for '/customer/contact-requests' pointing to CustomerPage module, ContactRequest controller, listAction
         // Hint: $route = $this->buildRoute('/customer/contact-requests', 'CustomerPage', 'ContactRequest', 'listAction');
         // TODO: Set allowed methods to GET and POST
         // Hint: $route = $route->setMethods(['GET', 'POST']);
