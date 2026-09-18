@@ -32,7 +32,7 @@ class ContactRequestController extends AbstractCustomerController
         // TODO: Step 4 - Create the message form using getFactory()->createContactRequestForm()
         // TODO: Step 5 - Handle the request with $contactRequestForm->handleRequest($request)
         // TODO: Step 6 - If form is submitted and valid, call handleContactRequestFormSubmit()
-        // TODO: Step 7 - Return $this->view() with 'messages' and 'contactRequestForm' variables
+        // TODO: Step 7 - Return $this->view() with 'contactRequests' and 'contactRequestForm' variables
         //        Template: '@CustomerPage/views/contact-request/list.twig'
 
         return [];
