@@ -90,7 +90,7 @@ class MessageAsyncController extends AbstractCustomerController
         $content = $this->getTwig()->render(
             '@CustomerPage/views/contact-request/message-async.twig',
             [
-                'messages' => $contactRequestCollectionTransfer->getContactRequests(),
+                'contactRequests' => $contactRequestCollectionTransfer->getContactRequests(),
                 'contactRequestForm' => $contactRequestForm->createView(),
             ],
         );

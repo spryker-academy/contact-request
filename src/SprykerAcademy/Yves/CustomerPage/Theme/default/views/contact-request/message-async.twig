@@ -3,7 +3,7 @@
 <div class="box">
     <h4>My Contact Requests</h4>
 
-    {% if messages is not empty %}
+    {% if contactRequests is not empty %}
         <table class="table table--expand">
             <thead>
                 <tr>
@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for contactRequest in messages %}
+                {% for contactRequest in contactRequests %}
                     <tr>
                         <td>{{ contactRequest.idContactRequest }}</td>
                         <td>{{ contactRequest.message }}</td>
