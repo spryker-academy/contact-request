@@ -15,7 +15,7 @@ use Spryker\Zed\Kernel\Communication\Controller\AbstractGatewayController;
  */
 class GatewayController extends AbstractGatewayController
 {
-    public function findMessageAction(ContactRequestCriteriaTransfer $contactRequestCriteria)
+    public function findContactRequestAction(ContactRequestCriteriaTransfer $contactRequestCriteria)
     {
         // TODO: With the help of the facade find a message and return it
     }
