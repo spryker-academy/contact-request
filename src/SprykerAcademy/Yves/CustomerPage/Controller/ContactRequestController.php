@@ -45,7 +45,7 @@ class ContactRequestController extends AbstractCustomerController
 
         return $this->view(
             [
-                'messages' => $contactRequestCollectionTransfer->getContactRequests(),
+                'contactRequests' => $contactRequestCollectionTransfer->getContactRequests(),
                 'contactRequestForm' => $contactRequestForm->createView(),
             ],
             [],
