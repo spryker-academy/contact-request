@@ -19,12 +19,12 @@ use Spryker\Zed\Kernel\Communication\Controller\AbstractGatewayController;
  */
 class GatewayController extends AbstractGatewayController
 {
-    public function findMessageAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
+    public function findContactRequestAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
         return $this->getFacade()->findContactRequest($contactRequestCriteria);
     }
 
-    public function createMessageAction(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
+    public function createContactRequestAction(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
     {
         return $this->getFacade()->createContactRequest($contactRequestTransfer);
     }
