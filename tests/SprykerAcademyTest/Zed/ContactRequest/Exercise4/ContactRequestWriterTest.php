@@ -33,7 +33,7 @@ class ContactRequestWriterTest extends Unit
 
         $entityManagerMock = $this->createMock(ContactRequestEntityManagerInterface::class);
         $entityManagerMock->expects($this->once())
-            ->method('createMessage')
+            ->method('createContactRequest')
             ->with($inputTransfer)
             ->willReturn($savedTransfer);
 
