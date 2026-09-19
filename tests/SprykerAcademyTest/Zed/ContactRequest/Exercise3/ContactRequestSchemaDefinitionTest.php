@@ -16,7 +16,7 @@ use Codeception\Test\Unit;
  */
 class ContactRequestSchemaDefinitionTest extends Unit
 {
-    private const SCHEMA_XML_RELATIVE_PATH = 'src/SprykerAcademy/Zed/ContactRequest/Persistence/Propel/Schema/pyz_contact_request.schema.xml';
+    private const string SCHEMA_XML_RELATIVE_PATH = 'src/SprykerAcademy/Zed/ContactRequest/Persistence/Propel/Schema/pyz_contact_request.schema.xml';
 
     private function findSchemaXmlPath(): string
     {

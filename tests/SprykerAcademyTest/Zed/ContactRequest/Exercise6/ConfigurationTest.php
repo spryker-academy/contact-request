@@ -16,13 +16,13 @@ use Codeception\Test\Unit;
  */
 class ConfigurationTest extends Unit
 {
-    private const CONSTANTS_CLASS = 'SprykerAcademy\Shared\ContactRequest\ContactRequestConstants';
-    private const CONFIG_CLASS = 'SprykerAcademy\Zed\ContactRequest\ContactRequestConfig';
-    private const FACTORY_CLASS = 'SprykerAcademy\Zed\ContactRequest\Communication\ContactRequestCommunicationFactory';
-    private const CONTROLLER_CLASS = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\ConfigController';
-    private const ABSTRACT_CONFIG_CLASS = 'Spryker\Zed\Kernel\AbstractBundleConfig';
-    private const ABSTRACT_FACTORY_CLASS = 'Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory';
-    private const ABSTRACT_CONTROLLER_CLASS = 'Spryker\Zed\Kernel\Communication\Controller\AbstractController';
+    private const string CONSTANTS_CLASS = 'SprykerAcademy\Shared\ContactRequest\ContactRequestConstants';
+    private const string CONFIG_CLASS = 'SprykerAcademy\Zed\ContactRequest\ContactRequestConfig';
+    private const string FACTORY_CLASS = 'SprykerAcademy\Zed\ContactRequest\Communication\ContactRequestCommunicationFactory';
+    private const string CONTROLLER_CLASS = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\ConfigController';
+    private const string ABSTRACT_CONFIG_CLASS = 'Spryker\Zed\Kernel\AbstractBundleConfig';
+    private const string ABSTRACT_FACTORY_CLASS = 'Spryker\Zed\Kernel\Communication\AbstractCommunicationFactory';
+    private const string ABSTRACT_CONTROLLER_CLASS = 'Spryker\Zed\Kernel\Communication\Controller\AbstractController';
 
     public function testConstantsInterfaceExists(): void
     {

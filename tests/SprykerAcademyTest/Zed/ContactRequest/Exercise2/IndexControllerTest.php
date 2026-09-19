@@ -16,8 +16,8 @@ use Codeception\Test\Unit;
  */
 class IndexControllerTest extends Unit
 {
-    private const CONTROLLER_CLASS = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\IndexController';
-    private const TRANSFER_CLASS = 'Generated\Shared\Transfer\ContactRequestTransfer';
+    private const string CONTROLLER_CLASS = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\IndexController';
+    private const string TRANSFER_CLASS = 'Generated\Shared\Transfer\ContactRequestTransfer';
 
     private function skipIfNoController(): void
     {
