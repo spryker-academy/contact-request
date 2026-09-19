@@ -16,7 +16,7 @@ use Codeception\Test\Unit;
  */
 class ContactRequestTransferDefinitionTest extends Unit
 {
-    private const TRANSFER_XML_RELATIVE_PATH = 'src/SprykerAcademy/Shared/ContactRequest/Transfer/contact_request.transfer.xml';
+    private const string TRANSFER_XML_RELATIVE_PATH = 'src/SprykerAcademy/Shared/ContactRequest/Transfer/contact_request.transfer.xml';
 
     private function findTransferXmlPath(): string
     {
