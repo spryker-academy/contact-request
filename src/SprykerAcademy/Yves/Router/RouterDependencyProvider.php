@@ -20,7 +20,7 @@ class RouterDependencyProvider extends PyzRouterDependencyProvider
     {
         $routeProviderPlugins = parent::getRouteProvider();
 
-        // TODO: Add a new ContactRequestPageRouteProviderPlugin to $routeProviderPlugins, so Yves knows the /contact-request/{idMessage} route
+        // TODO: Add a new ContactRequestPageRouteProviderPlugin to $routeProviderPlugins, so Yves knows the /contact-request/{idContactRequest} route
 
         return $routeProviderPlugins;
     }
