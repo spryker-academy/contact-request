@@ -11,10 +11,10 @@ use SprykerShop\Yves\ShopApplication\Controller\AbstractController;
  */
 class IndexController extends AbstractController
 {
-    public function getAction(int $idMessage): View
+    public function getAction(int $idContactRequest): View
     {
         $contactRequestCriteriaTransfer = new ContactRequestCriteriaTransfer();
-        $contactRequestCriteriaTransfer->setIdContactRequest($idMessage);
+        $contactRequestCriteriaTransfer->setIdContactRequest($idContactRequest);
 
         $contactRequestResponseTransfer = $this->getFactory()
             ->getContactRequestClient()

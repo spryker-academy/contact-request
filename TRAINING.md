@@ -82,7 +82,7 @@ composer require spryker-academy/contact-request:2.0.0-skeleton
    src/SprykerAcademy/Shared/ContactRequest/Transfer/contact_request.transfer.xml
    ```
 
-2. Define `ContactRequestMessage` transfer with properties:
+2. Define the `ContactRequest` transfer with properties:
    - message (string)
    - timestamp (string)
 
@@ -98,7 +98,7 @@ composer require spryker-academy/contact-request:2.0.0-skeleton
 ### ✅ Completion Criteria
 - [ ] Transfer XML defined correctly
 - [ ] Transfer classes generated
-- [ ] Controller uses ContactRequestContactRequestTransfer
+- [ ] Controller uses ContactRequestTransfer
 - [ ] Type safety maintained throughout
 
 ---

@@ -7,7 +7,7 @@ use Spryker\Yves\Router\Route\RouteCollection;
 
 class ContactRequestPageRouteProviderPlugin extends AbstractRouteProviderPlugin
 {
-    public const string ROUTE_NAME_CONTACT_REQUEST = 'contact-request/message/_idMessage_';
+    public const string ROUTE_NAME_CONTACT_REQUEST = 'contact-request/message/_idContactRequest_';
 
     public function addRoutes(RouteCollection $routeCollection): RouteCollection
     {
@@ -18,7 +18,7 @@ class ContactRequestPageRouteProviderPlugin extends AbstractRouteProviderPlugin
 
     private function addContactRequestMessageGetRoute(RouteCollection $routeCollection): RouteCollection
     {
-        $route = $this->buildRoute('contact-request/{idMessage}', 'ContactRequestPage', 'Index', 'getAction');
+        $route = $this->buildRoute('contact-request/{idContactRequest}', 'ContactRequestPage', 'Index', 'getAction');
         $route = $route->setMethods(['GET']);
         $routeCollection->add(static::ROUTE_NAME_CONTACT_REQUEST, $route);
 
