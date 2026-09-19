@@ -21,7 +21,7 @@ class ContactRequestRepository extends AbstractRepository implements ContactRequ
         $contactRequestEntity = null;
 
         // TODO: Get the query from the factory
-        // TODO: If the criteria has an idMessage, use findOneBy<ColumnName>() to find by ID
+        // TODO: If the criteria has an idContactRequest, use findOneBy<ColumnName>() to find by ID
         // TODO: If the criteria has a message string, use filterBy<ColumnName>() with Criteria::LIKE as second parameter, then call findOne()
         // Hint: You will need to import Propel\Runtime\ActiveQuery\Criteria
 
