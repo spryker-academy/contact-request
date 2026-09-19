@@ -12,9 +12,9 @@ use Spryker\Client\Kernel\Container;
 
 class ContactRequestDependencyProvider extends AbstractDependencyProvider
 {
-    public const CLIENT_ZED_REQUEST = 'CLIENT_ZED_REQUEST';
+    public const string CLIENT_ZED_REQUEST = 'CLIENT_ZED_REQUEST';
 
-    public const CLIENT_STORE = 'CLIENT_STORE';
+    public const string CLIENT_STORE = 'CLIENT_STORE';
 
     public function provideServiceLayerDependencies(Container $container): Container
     {

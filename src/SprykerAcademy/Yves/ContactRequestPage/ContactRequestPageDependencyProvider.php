@@ -7,7 +7,7 @@ use Spryker\Yves\Kernel\Container;
 
 class ContactRequestPageDependencyProvider extends AbstractBundleDependencyProvider
 {
-    public const CLIENT_CONTACT_REQUEST = 'CLIENT_CONTACT_REQUEST';
+    public const string CLIENT_CONTACT_REQUEST = 'CLIENT_CONTACT_REQUEST';
 
     public function provideDependencies(Container $container): Container
     {
