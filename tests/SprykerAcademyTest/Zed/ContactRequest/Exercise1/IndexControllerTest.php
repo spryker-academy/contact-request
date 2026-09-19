@@ -16,8 +16,8 @@ use Codeception\Test\Unit;
  */
 class IndexControllerTest extends Unit
 {
-    private const CONTROLLER_CLASS = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\IndexController';
-    private const ABSTRACT_CONTROLLER_CLASS = 'Spryker\Zed\Kernel\Communication\Controller\AbstractController';
+    private const string CONTROLLER_CLASS = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\IndexController';
+    private const string ABSTRACT_CONTROLLER_CLASS = 'Spryker\Zed\Kernel\Communication\Controller\AbstractController';
 
     public function testIndexControllerClassExists(): void
     {
