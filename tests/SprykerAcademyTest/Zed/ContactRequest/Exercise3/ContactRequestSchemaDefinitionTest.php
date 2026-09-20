@@ -7,7 +7,7 @@ namespace SprykerAcademyTest\Zed\ContactRequest\Exercise3;
 use Codeception\Test\Unit;
 
 /**
- * Exercise 3: Message Table Schema
+ * Exercise 3: Contact Request Table Schema
  *
  * Verifies that students defined the pyz_contact_request table with the correct
  * columns, primary key, auto-increment, and unique constraint.
@@ -73,7 +73,7 @@ class ContactRequestSchemaDefinitionTest extends Unit
         $this->assertTrue(true);
     }
 
-    public function testIdMessageColumnExists(): void
+    public function testIdContactRequestColumnExists(): void
     {
         $table = $this->getTable();
         $columns = $table->xpath('column[@name="id_contact_request"]');
@@ -84,7 +84,7 @@ class ContactRequestSchemaDefinitionTest extends Unit
         );
     }
 
-    public function testIdMessageIsPrimaryKey(): void
+    public function testIdContactRequestIsPrimaryKey(): void
     {
         $table = $this->getTable();
         $columns = $table->xpath('column[@name="id_contact_request"]');
@@ -101,7 +101,7 @@ class ContactRequestSchemaDefinitionTest extends Unit
         );
     }
 
-    public function testIdMessageIsAutoIncrement(): void
+    public function testIdContactRequestIsAutoIncrement(): void
     {
         $table = $this->getTable();
         $columns = $table->xpath('column[@name="id_contact_request"]');
@@ -118,7 +118,7 @@ class ContactRequestSchemaDefinitionTest extends Unit
         );
     }
 
-    public function testIdMessageIsInteger(): void
+    public function testIdContactRequestIsInteger(): void
     {
         $table = $this->getTable();
         $columns = $table->xpath('column[@name="id_contact_request"]');
