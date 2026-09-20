@@ -3,23 +3,23 @@
            xmlns="spryker:transfer-01"
            xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
 
-    <transfer name="ContactRequest">
+    <transfer name="ContactRequest" strict="true">
         <property name="idContactRequest" type="int"/>
         <property name="message" type="string"/>
         <!-- TODO: Add a property "fkCustomer" of type "int" -->
         <!-- TODO: Add a property "createdAt" of type "string" -->
     </transfer>
-    <transfer name="ContactRequestCriteria">
+    <transfer name="ContactRequestCriteria" strict="true">
         <property name="idContactRequest" type="int"/>
         <property name="message" type="string"/>
         <!-- TODO: Add a property "fkCustomer" of type "int" -->
     </transfer>
 
-    <transfer name="ContactRequestResponse">
+    <transfer name="ContactRequestResponse" strict="true">
         <property name="contactRequest" type="ContactRequest"/>
         <property name="isSuccessful" type="bool"/>
     </transfer>
 
-    <!-- TODO: Add a transfer named "ContactRequestCollection" with a property "contactRequests" of type "ContactRequest[]" -->
+    <!-- TODO: Add a transfer named "ContactRequestCollection" (strict="true") with a property "contactRequests" of type "ContactRequest[]" and singular="contactRequest" -->
 
 </transfers>

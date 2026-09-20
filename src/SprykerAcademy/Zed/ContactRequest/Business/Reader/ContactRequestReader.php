@@ -39,7 +39,7 @@ class ContactRequestReader
 
         $contactRequestCollectionTransfer = new ContactRequestCollectionTransfer();
         foreach ($contactRequestTransfers as $contactRequestTransfer) {
-            $contactRequestCollectionTransfer->addContactRequests($contactRequestTransfer);
+            $contactRequestCollectionTransfer->addContactRequest($contactRequestTransfer);
         }
 
         return $contactRequestCollectionTransfer;
