@@ -47,7 +47,7 @@ class ContactRequestReaderTest extends Unit
         );
         $this->assertNotNull(
             $response->getContactRequest(),
-            'findContactRequest() must set the contact request on the response when found.',
+            'findContactRequest() must set the contactRequest on the response when found.',
         );
         $this->assertSame(
             'Hello',

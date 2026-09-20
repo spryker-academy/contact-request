@@ -9,17 +9,22 @@ declare(strict_types=1);
 
 namespace SprykerAcademy\Zed\ContactRequest\Communication\Controller;
 
+use Generated\Shared\Transfer\ContactRequestTransfer;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
 
 class IndexController extends AbstractController
 {
     /**
-     * @return array<string, mixed>
+     * @return array<string, ContactRequestTransfer>
      */
     public function indexAction(): array
     {
+        $contactRequestTransfer = new ContactRequestTransfer();
+        $contactRequestTransfer->setMessage('Contact Request!');
+        $contactRequestTransfer->setIdContactRequest(1);
+
         return $this->viewResponse([
-            'contactRequestText' => 'Contact Request!',
+            'contactRequest' => $contactRequestTransfer,
         ]);
     }
 }
