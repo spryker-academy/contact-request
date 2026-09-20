@@ -52,7 +52,7 @@ class ContactRequestReaderTest extends Unit
         $this->assertSame(
             'Hello',
             $response->getContactRequest()->getMessage(),
-            'The returned message must match the one from the Repository.',
+            'The returned contact request must match the one from the Repository.',
         );
     }
 

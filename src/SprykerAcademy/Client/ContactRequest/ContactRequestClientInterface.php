@@ -14,8 +14,8 @@ interface ContactRequestClientInterface
 {
     /**
      * Specification:
-     * - Finds message by defined criteria
-     * - Returns a response-transfer which can hold a message if one is found
+     * - Finds a contact request by the defined criteria
+     * - Returns a response-transfer which can hold a contact request if one is found
      *
      * @api
      *

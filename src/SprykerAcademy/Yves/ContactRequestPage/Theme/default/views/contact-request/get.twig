@@ -1,13 +1,13 @@
 {% extends template('page-layout-main') %}
 
 {% define data = {
-    message: _view.message
+    contactRequest: _view.contactRequest
 } %}
 
 {% block content %}
-    {% if data.message is not null %}
-        My message is: {{ data.message.message }}
+    {% if data.contactRequest is not null %}
+        The contact request message is: {{ data.contactRequest.message }}
     {% else %}
-        No message found :(
+        No contact request found :(
     {% endif %}
 {% endblock %}
