@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ContactRequestController extends AbstractCustomerController
 {
-    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS = 'customer/messages';
+    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS = 'customer/contact-requests';
 
     public function listAction(Request $request): View|RedirectResponse
     {
@@ -45,20 +45,20 @@ class ContactRequestController extends AbstractCustomerController
 
         return $this->view(
             [
-                'messages' => $contactRequestCollectionTransfer->getContactRequests(),
+                'contactRequests' => $contactRequestCollectionTransfer->getContactRequests(),
                 'contactRequestForm' => $contactRequestForm->createView(),
             ],
             [],
-            '@CustomerPage/views/message/list.twig',
+            '@CustomerPage/views/contact-request/list.twig',
         );
     }
 
     public function deleteAction(Request $request): RedirectResponse
     {
-        $idMessage = $this->castId($request->request->get('idMessage'));
+        $idContactRequest = $this->castId($request->request->get('idContactRequest'));
 
         $contactRequestCriteria = new ContactRequestCriteriaTransfer();
-        $contactRequestCriteria->setIdContactRequest($idMessage);
+        $contactRequestCriteria->setIdContactRequest($idContactRequest);
 
         $this->getFactory()
             ->getContactRequestClient()

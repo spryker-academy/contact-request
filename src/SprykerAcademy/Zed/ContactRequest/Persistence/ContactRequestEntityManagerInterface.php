@@ -19,9 +19,9 @@ interface ContactRequestEntityManagerInterface
     public function createContactRequest(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer;
 
     /**
-     * @param int $idMessage
+     * @param int $idContactRequest
      *
      * @return bool
      */
-    public function deleteContactRequest(int $idMessage): bool;
+    public function deleteContactRequest(int $idContactRequest): bool;
 }

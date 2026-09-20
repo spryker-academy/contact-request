@@ -22,7 +22,7 @@ class ContactRequestStubTest extends Unit
 {
     private const string EXPECTED_GATEWAY_PATH = '/contact-request/gateway/find-contact-request';
 
-    public function testFindMessageCallsCorrectGatewayPath(): void
+    public function testFindContactRequestCallsCorrectGatewayPath(): void
     {
         $this->assertStubClassExists();
 

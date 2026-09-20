@@ -29,7 +29,7 @@
                             <td>{{ contactRequest.message }}</td>
                             <td>{{ contactRequest.createdAt | date('Y-m-d H:i') }}</td>
                             <td>
-                                <form method="post" action="{{ path('customer/messages/delete') }}" style="display:inline">
+                                <form method="post" action="{{ path('customer/contact-requests/delete') }}" style="display:inline">
                                     <input type="hidden" name="idContactRequest" value="{{ contactRequest.idContactRequest }}">
                                     <button type="submit" class="button button--hollow button--alert button--small">
                                         Delete

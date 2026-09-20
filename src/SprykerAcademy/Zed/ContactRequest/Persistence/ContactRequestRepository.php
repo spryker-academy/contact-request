@@ -48,12 +48,12 @@ class ContactRequestRepository extends AbstractRepository implements ContactRequ
 
         $contactRequestEntities = $query->find();
         $mapper = $this->getFactory()->createContactRequestMapper();
-        $messages = [];
+        $contactRequests = [];
 
         foreach ($contactRequestEntities as $contactRequestEntity) {
-            $messages[] = $mapper->mapEntityToContactRequestTransfer($contactRequestEntity, new ContactRequestTransfer());
+            $contactRequests[] = $mapper->mapEntityToContactRequestTransfer($contactRequestEntity, new ContactRequestTransfer());
         }
 
-        return $messages;
+        return $contactRequests;
     }
 }
