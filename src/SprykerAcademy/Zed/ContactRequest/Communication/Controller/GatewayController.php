@@ -25,20 +25,23 @@ class GatewayController extends AbstractGatewayController
 
     public function createContactRequestAction(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
     {
-        return $this->getFacade()->createContactRequest($contactRequestTransfer);
+        // TODO: Use the Facade to create the contact request and return it
+
+        return $contactRequestTransfer;
     }
 
     public function getContactRequestsByCustomerAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestCollectionTransfer
     {
-        return $this->getFacade()->findContactRequestsByCustomer($contactRequestCriteria);
+        // TODO: Use the Facade to find the contact requests of the customer and return the collection
+
+        return new ContactRequestCollectionTransfer();
     }
 
     public function deleteContactRequestAction(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
-        $responseTransfer = new ContactRequestResponseTransfer();
-        $deleted = $this->getFacade()->deleteContactRequest($contactRequestCriteria->getIdContactRequest());
-        $responseTransfer->setIsSuccessful($deleted);
+        // TODO: Use the Facade to delete the contact request by its id
+        // TODO: Return a ContactRequestResponseTransfer carrying the isSuccessful flag
 
-        return $responseTransfer;
+        return new ContactRequestResponseTransfer();
     }
 }

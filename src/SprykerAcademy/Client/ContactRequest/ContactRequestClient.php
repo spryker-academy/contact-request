@@ -31,16 +31,22 @@ class ContactRequestClient extends AbstractClient implements ContactRequestClien
 
     public function createContactRequest(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
     {
-        return $this->getFactory()->createContactRequestStub()->createContactRequest($contactRequestTransfer);
+        // TODO: Delegate to the ContactRequestStub through the factory
+
+        return $contactRequestTransfer;
     }
 
     public function getContactRequestsByCustomer(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestCollectionTransfer
     {
-        return $this->getFactory()->createContactRequestStub()->getContactRequestsByCustomer($contactRequestCriteria);
+        // TODO: Delegate to the ContactRequestStub through the factory
+
+        return new ContactRequestCollectionTransfer();
     }
 
     public function deleteContactRequest(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
-        return $this->getFactory()->createContactRequestStub()->deleteContactRequest($contactRequestCriteria);
+        // TODO: Delegate to the ContactRequestStub through the factory
+
+        return new ContactRequestResponseTransfer();
     }
 }

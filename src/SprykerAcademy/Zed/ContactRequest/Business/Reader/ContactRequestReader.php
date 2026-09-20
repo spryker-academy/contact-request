@@ -35,13 +35,10 @@ class ContactRequestReader
 
     public function findContactRequestsByCustomer(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestCollectionTransfer
     {
-        $contactRequestTransfers = $this->contactRequestRepository->findContactRequestsByCustomer($contactRequestCriteria);
+        // TODO: Step 1 - Use the repository to get the contact requests of this customer
+        // TODO: Step 2 - Create a ContactRequestCollectionTransfer and add each one with addContactRequest()
+        // TODO: Step 3 - Return the collection
 
-        $contactRequestCollectionTransfer = new ContactRequestCollectionTransfer();
-        foreach ($contactRequestTransfers as $contactRequestTransfer) {
-            $contactRequestCollectionTransfer->addContactRequest($contactRequestTransfer);
-        }
-
-        return $contactRequestCollectionTransfer;
+        return new ContactRequestCollectionTransfer();
     }
 }

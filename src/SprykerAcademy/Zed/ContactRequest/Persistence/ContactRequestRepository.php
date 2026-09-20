@@ -40,20 +40,13 @@ class ContactRequestRepository extends AbstractRepository implements ContactRequ
      */
     public function findContactRequestsByCustomer(ContactRequestCriteriaTransfer $contactRequestCriteria): array
     {
-        $query = $this->getFactory()->createContactRequestQuery();
+        // TODO: Step 1 - Get the contact request query from the factory
+        // TODO: Step 2 - Filter by fk_customer when the criteria has a fkCustomer set
+        //        Hint: Propel generates filterBy<ColumnName>() on every query object
+        // TODO: Step 3 - Execute the query with find()
+        // TODO: Step 4 - Map every entity to a ContactRequestTransfer with the ContactRequestMapper
+        // TODO: Step 5 - Return the array of ContactRequestTransfer objects
 
-        if ($contactRequestCriteria->getFkCustomer()) {
-            $query->filterByFkCustomer($contactRequestCriteria->getFkCustomer());
-        }
-
-        $contactRequestEntities = $query->find();
-        $mapper = $this->getFactory()->createContactRequestMapper();
-        $contactRequests = [];
-
-        foreach ($contactRequestEntities as $contactRequestEntity) {
-            $contactRequests[] = $mapper->mapEntityToContactRequestTransfer($contactRequestEntity, new ContactRequestTransfer());
-        }
-
-        return $contactRequests;
+        return [];
     }
 }

@@ -40,25 +40,23 @@ class ContactRequestStub
 
     public function createContactRequest(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
     {
-        /** @var \Generated\Shared\Transfer\ContactRequestTransfer $contactRequestTransfer */
-        $contactRequestTransfer = $this->zedRequestClient->call('/contact-request/gateway/create-contact-request', $contactRequestTransfer);
+        // TODO: Call $this->zedRequestClient->call() with the path of createContactRequestAction()
+        //        The convention is /module-name/gateway/action-name in kebab-case
 
         return $contactRequestTransfer;
     }
 
     public function getContactRequestsByCustomer(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestCollectionTransfer
     {
-        /** @var \Generated\Shared\Transfer\ContactRequestCollectionTransfer $contactRequestCollectionTransfer */
-        $contactRequestCollectionTransfer = $this->zedRequestClient->call('/contact-request/gateway/get-contact-requests-by-customer', $contactRequestCriteria);
+        // TODO: Call $this->zedRequestClient->call() with the path of getContactRequestsByCustomerAction()
 
-        return $contactRequestCollectionTransfer;
+        return new ContactRequestCollectionTransfer();
     }
 
     public function deleteContactRequest(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
-        /** @var \Generated\Shared\Transfer\ContactRequestResponseTransfer $contactRequestResponseTransfer */
-        $contactRequestResponseTransfer = $this->zedRequestClient->call('/contact-request/gateway/delete-contact-request', $contactRequestCriteria);
+        // TODO: Call $this->zedRequestClient->call() with the path of deleteContactRequestAction()
 
-        return $contactRequestResponseTransfer;
+        return new ContactRequestResponseTransfer();
     }
 }

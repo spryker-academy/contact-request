@@ -49,7 +49,9 @@ class ContactRequestFacade extends AbstractFacade implements ContactRequestFacad
      */
     public function findContactRequestsByCustomer(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestCollectionTransfer
     {
-        return $this->getFactory()->createContactRequestReader()->findContactRequestsByCustomer($contactRequestCriteria);
+        // TODO: Delegate to the ContactRequestReader from the factory and return its result
+
+        return new ContactRequestCollectionTransfer();
     }
 
     /**

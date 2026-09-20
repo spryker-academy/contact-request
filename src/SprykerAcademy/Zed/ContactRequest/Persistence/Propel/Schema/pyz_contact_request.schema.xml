@@ -6,15 +6,13 @@
     <table name="pyz_contact_request" idMethod="native" allowPkInsert="true" phpName="PyzContactRequest">
         <column name="id_contact_request" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
         <column name="message" required="true" type="VARCHAR" size="255"/>
-        <column name="fk_customer" required="false" type="INTEGER"/>
+        <!-- TODO: Add a column "fk_customer" of type INTEGER, required="false" -->
         <unique name="pyz_contact_request-message">
             <unique-column name="message"/>
-            <unique-column name="fk_customer"/>
+            <!-- TODO: Add fk_customer to this unique index, so two customers can send the same text -->
         </unique>
-        <foreign-key name="pyz_contact_request-fk_customer" foreignTable="spy_customer" phpName="Customer" onDelete="CASCADE">
-            <reference local="fk_customer" foreign="id_customer"/>
-        </foreign-key>
-        <behavior name="timestampable"/>
+        <!-- TODO: Add a <foreign-key> to spy_customer mapping fk_customer to id_customer, onDelete="CASCADE" -->
+        <!-- TODO: Add <behavior name="timestampable"/> so Propel manages created_at and updated_at -->
         <id-method-parameter value="pyz_contact_request_pk_seq"/>
     </table>
 
