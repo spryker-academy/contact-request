@@ -16,8 +16,8 @@ use Generated\Shared\Transfer\ContactRequestTransfer;
 interface ContactRequestFacadeInterface
 {
     /**
-     * - Creates and persists message
-     * - Returns message with assigned ID
+     * - Creates and persists a contact request
+     * - Returns the contact request with the assigned ID
      *
      * @api
      *
@@ -26,8 +26,8 @@ interface ContactRequestFacadeInterface
     public function createContactRequest(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer;
 
     /**
-     * - Finds message by defined criteria
-     * - Returns a response-transfer which can hold a message if one is found
+     * - Finds a contact request by the defined criteria
+     * - Returns a response-transfer which can hold a contact request if one is found
      *
      * @api
      *

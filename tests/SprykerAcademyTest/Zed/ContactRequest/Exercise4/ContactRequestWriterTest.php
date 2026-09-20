@@ -13,7 +13,7 @@ use SprykerAcademy\Zed\ContactRequest\Persistence\ContactRequestEntityManagerInt
  * Exercise 4: Module Layers - ContactRequestWriter
  *
  * Verifies that the ContactRequestWriter delegates to the EntityManager
- * and returns the created message.
+ * and returns the created contact request.
  *
  * Run: vendor/bin/codecept run -c tests/SprykerAcademyTest/Zed/ContactRequest/ Exercise4
  */
@@ -50,7 +50,7 @@ class ContactRequestWriterTest extends Unit
         $this->assertSame(
             'Test Message',
             $result->getMessage(),
-            'The returned message content must match.',
+            'The returned contact request content must match.',
         );
     }
 

@@ -25,7 +25,7 @@ class ContactRequestController extends AbstractController
         $contactRequestResponseTransfer = $this->getFactory()->getContactRequestClient()->findContactRequest($contactRequestCriteriaTransfer);
 
         return $this->view(
-            ['message' => $contactRequestResponseTransfer->getContactRequest()],
+            ['contactRequest' => $contactRequestResponseTransfer->getContactRequest()],
             [],
             '@ContactRequestPage/views/contact-request/get.twig',
         );

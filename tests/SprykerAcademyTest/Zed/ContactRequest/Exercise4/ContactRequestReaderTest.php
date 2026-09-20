@@ -20,7 +20,7 @@ use SprykerAcademy\Zed\ContactRequest\Persistence\ContactRequestRepositoryInterf
  */
 class ContactRequestReaderTest extends Unit
 {
-    public function testFindMessageReturnsSuccessfulResponseWhenMessageFound(): void
+    public function testFindContactRequestReturnsSuccessfulResponseWhenContactRequestFound(): void
     {
         $this->assertReaderClassExists();
 
@@ -43,7 +43,7 @@ class ContactRequestReaderTest extends Unit
         // Assert
         $this->assertTrue(
             $response->getIsSuccessful(),
-            'findContactRequest() must return isSuccessful=true when a message is found.',
+            'findContactRequest() must return isSuccessful=true when a contact request is found.',
         );
         $this->assertNotNull(
             $response->getContactRequest(),
@@ -52,11 +52,11 @@ class ContactRequestReaderTest extends Unit
         $this->assertSame(
             'Hello',
             $response->getContactRequest()->getMessage(),
-            'The returned message must match the one from the Repository.',
+            'The returned contact request must match the one from the Repository.',
         );
     }
 
-    public function testFindMessageReturnsUnsuccessfulResponseWhenMessageNotFound(): void
+    public function testFindContactRequestReturnsUnsuccessfulResponseWhenContactRequestNotFound(): void
     {
         $this->assertReaderClassExists();
 
@@ -75,7 +75,7 @@ class ContactRequestReaderTest extends Unit
         // Assert
         $this->assertFalse(
             $response->getIsSuccessful(),
-            'findContactRequest() must return isSuccessful=false when no message is found.',
+            'findContactRequest() must return isSuccessful=false when no contact request is found.',
         );
     }
 

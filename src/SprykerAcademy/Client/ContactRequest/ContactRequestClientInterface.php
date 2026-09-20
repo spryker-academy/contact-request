@@ -16,8 +16,8 @@ use Generated\Shared\Transfer\ContactRequestTransfer;
 interface ContactRequestClientInterface
 {
     /**
-     * - Finds message by defined criteria
-     * - Returns a response-transfer which can hold a message if one is found
+     * - Finds a contact request by the defined criteria
+     * - Returns a response-transfer which can hold a contact request if one is found
      *
      * @api
      *
@@ -27,8 +27,8 @@ interface ContactRequestClientInterface
 
     /**
      * Specification:
-     * - Creates a message by message-transfer
-     * - Returns a message-transfer with the created message-data
+     * - Creates a contact request by contact-request-transfer
+     * - Returns a contact-request-transfer with the created data
      *
      * @api
      *
