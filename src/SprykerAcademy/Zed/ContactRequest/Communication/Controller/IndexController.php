@@ -11,7 +11,7 @@ class IndexController extends AbstractController
      */
     public function indexAction(): array
     {
-        // TODO: initialize the message DTO and set a name
+        // TODO: initialize the ContactRequest DTO and set a message
 
         return $this->viewResponse([
             // TODO: pass the DTO to the view
