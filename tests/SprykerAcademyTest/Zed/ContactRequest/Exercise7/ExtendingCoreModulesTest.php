@@ -9,10 +9,11 @@ use Generated\Shared\Transfer\ContactRequestCollectionTransfer;
 use Generated\Shared\Transfer\ContactRequestCriteriaTransfer;
 use Generated\Shared\Transfer\ContactRequestResponseTransfer;
 use Generated\Shared\Transfer\ContactRequestTransfer;
-use Spryker\Client\ZedRequest\ZedRequestClientInterface;
 use SprykerAcademy\Client\ContactRequest\Stub\ContactRequestStub;
 use SprykerAcademy\Zed\ContactRequest\Business\Deleter\ContactRequestDeleter;
 use SprykerAcademy\Zed\ContactRequest\Persistence\ContactRequestEntityManagerInterface;
+use Spryker\Client\ZedRequest\ZedRequestClientInterface;
+use Spryker\Service\Container\ContainerDelegator;
 
 /**
  * Exercise 7: Extending Core Modules - Customer Contact Requests
@@ -234,6 +235,92 @@ class ExtendingCoreModulesTest extends Unit
         );
     }
 
+    public function testReaderBuildsCollectionFromRepositoryResult(): void
+    {
+        $readerClass = 'SprykerAcademy\Zed\ContactRequest\Business\Reader\ContactRequestReader';
+        $repositoryInterface = 'SprykerAcademy\Zed\ContactRequest\Persistence\ContactRequestRepositoryInterface';
+
+        if (!class_exists($readerClass) || !interface_exists($repositoryInterface)) {
+            $this->markTestSkipped('ContactRequestReader or ContactRequestRepositoryInterface does not exist yet.');
+        }
+
+        // Arrange
+        $first = (new ContactRequestTransfer())->setIdContactRequest(1)->setMessage('First');
+        $second = (new ContactRequestTransfer())->setIdContactRequest(2)->setMessage('Second');
+
+        $repositoryMock = $this->createMock($repositoryInterface);
+        $repositoryMock->expects($this->once())
+            ->method('findContactRequestsByCustomer')
+            ->willReturn([$first, $second]);
+
+        // Act
+        $reader = new $readerClass($repositoryMock);
+        $collection = $reader->findContactRequestsByCustomer(
+            (new ContactRequestCriteriaTransfer())->setFkCustomer(1),
+        );
+
+        // Assert
+        $this->assertCount(
+            2,
+            $collection->getContactRequests(),
+            'findContactRequestsByCustomer() must put every contact request the Repository returned '
+            . 'into the ContactRequestCollectionTransfer.',
+        );
+        $this->assertSame(
+            ['First', 'Second'],
+            array_map(
+                static fn ($contactRequest) => $contactRequest->getMessage(),
+                iterator_to_array($collection->getContactRequests()),
+            ),
+            'The collection must carry the contact requests from the Repository, in order.',
+        );
+    }
+
+    public function testFacadeFindContactRequestsByCustomerDelegatesToReader(): void
+    {
+        $facadeClass = 'SprykerAcademy\Zed\ContactRequest\Business\ContactRequestFacade';
+        $readerClass = 'SprykerAcademy\Zed\ContactRequest\Business\Reader\ContactRequestReader';
+
+        if (!class_exists($facadeClass) || !class_exists($readerClass)) {
+            $this->markTestSkipped('ContactRequestFacade or ContactRequestReader does not exist yet.');
+        }
+
+        // Arrange
+        $expected = (new ContactRequestCollectionTransfer())
+            ->addContactRequest((new ContactRequestTransfer())->setMessage('From the Reader'));
+
+        $readerMock = $this->createMock($readerClass);
+        $readerMock->expects($this->once())
+            ->method('findContactRequestsByCustomer')
+            ->willReturn($expected);
+
+        $facade = new $facadeClass();
+        ContainerDelegator::getInstance()->set($readerClass, $readerMock);
+
+        $factoryClass = 'SprykerAcademy\Zed\ContactRequest\Business\ContactRequestBusinessFactory';
+        if (method_exists($factoryClass, 'createContactRequestReader')) {
+            $factoryMock = $this->getMockBuilder($factoryClass)
+                ->disableOriginalConstructor()
+                ->onlyMethods(['createContactRequestReader'])
+                ->getMock();
+            $factoryMock->method('createContactRequestReader')->willReturn($readerMock);
+            $facade->setFactory($factoryMock);
+        }
+
+        // Act
+        $result = $facade->findContactRequestsByCustomer(
+            (new ContactRequestCriteriaTransfer())->setFkCustomer(1),
+        );
+
+        // Assert
+        $this->assertSame(
+            $expected,
+            $result,
+            'findContactRequestsByCustomer() must return what the ContactRequestReader returned. '
+            . 'Delegate to the Reader instead of leaving the method empty.',
+        );
+    }
+
     // --- Part 7: Stub Gateway Path Tests ---
 
     public function testStubCreateContactRequestCallsCorrectGatewayPath(): void
@@ -395,12 +482,10 @@ class ExtendingCoreModulesTest extends Unit
 
     public function testContactRequestControllerHasDeleteAction(): void
     {
-        // The AJAX version moves add/delete into ContactRequestAsyncController (JSON responses); the classic version keeps deleteAction() in ContactRequestController.
-        $classicController = 'SprykerAcademy\Yves\CustomerPage\Controller\ContactRequestController';
-        $asyncController = 'SprykerAcademy\Yves\CustomerPage\Controller\ContactRequestAsyncController';
+        $class = 'SprykerAcademy\Yves\CustomerPage\Controller\ContactRequestController';
         $this->assertTrue(
-            method_exists($classicController, 'deleteAction') || method_exists($asyncController, 'deleteAction'),
-            'ContactRequestController (or ContactRequestAsyncController in the AJAX version) must have a deleteAction() method.',
+            method_exists($class, 'deleteAction'),
+            'ContactRequestController must have a deleteAction() method.',
         );
     }
 
