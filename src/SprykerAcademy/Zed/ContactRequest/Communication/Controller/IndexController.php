@@ -19,7 +19,7 @@ class IndexController extends AbstractController
     public function indexAction(): array
     {
         return $this->viewResponse([
-            'contactRequestText' => 'Contact Requests',
+            'contactRequestText' => 'Contact Request!',
         ]);
     }
 }
