@@ -295,7 +295,7 @@ class ExtendingCoreModulesTest extends Unit
             ->willReturn($expected);
 
         $facade = new $facadeClass();
-        ContainerDelegator::getInstance()->set($readerClass, $readerMock);
+        $this->bindService($readerClass, $readerMock);
 
         $factoryClass = 'SprykerAcademy\Zed\ContactRequest\Business\ContactRequestBusinessFactory';
         if (method_exists($factoryClass, 'createContactRequestReader')) {
@@ -530,5 +530,23 @@ class ExtendingCoreModulesTest extends Unit
         }
 
         $this->fail('Could not find contact_request.transfer.xml');
+    }
+
+    /**
+     * ContainerDelegator::set() writes to its $services map, but get() answers from
+     * $resolvedServices and never invalidates it. Without seeding that second map the
+     * first test to bind an id would win for the whole run, and the next one would
+     * silently assert against someone else's mock.
+     */
+    private function bindService(string $id, object $service): void
+    {
+        $container = ContainerDelegator::getInstance();
+        $container->set($id, $service);
+
+        $property = new \ReflectionProperty($container, 'resolvedServices');
+        $property->setAccessible(true);
+        $resolved = $property->getValue($container);
+        $resolved[$id] = $service;
+        $property->setValue($container, $resolved);
     }
 }
