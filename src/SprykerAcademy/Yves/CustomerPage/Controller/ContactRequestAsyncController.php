@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @method \SprykerAcademy\Yves\CustomerPage\CustomerPageFactory getFactory()
  */
-class MessageAsyncController extends AbstractCustomerController
+class ContactRequestAsyncController extends AbstractCustomerController
 {
     protected const string FLASH_MESSAGE_LIST_TEMPLATE_PATH = '@ShopUi/components/organisms/flash-message-list/flash-message-list.twig';
 
@@ -50,11 +50,11 @@ class MessageAsyncController extends AbstractCustomerController
 
     public function deleteAction(Request $request): JsonResponse
     {
-        $idMessage = $this->castId($request->request->get('idMessage'));
+        $idContactRequest = $this->castId($request->request->get('idContactRequest'));
 
         $customerTransfer = $this->getLoggedInCustomerTransfer();
         $contactRequestCriteria = new ContactRequestCriteriaTransfer();
-        $contactRequestCriteria->setIdContactRequest($idMessage);
+        $contactRequestCriteria->setIdContactRequest($idContactRequest);
 
         $response = $this->getFactory()
             ->getContactRequestClient()
@@ -88,7 +88,7 @@ class MessageAsyncController extends AbstractCustomerController
         $contactRequestForm = $this->getFactory()->createContactRequestForm(new ContactRequestTransfer());
 
         $content = $this->getTwig()->render(
-            '@CustomerPage/views/contact-request/message-async.twig',
+            '@CustomerPage/views/contact-request/contact-request-async.twig',
             [
                 'contactRequests' => $contactRequestCollectionTransfer->getContactRequests(),
                 'contactRequestForm' => $contactRequestForm->createView(),

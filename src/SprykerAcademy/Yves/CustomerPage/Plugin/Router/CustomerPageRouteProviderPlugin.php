@@ -16,8 +16,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CustomerPageRouteProviderPlugin extends SprykerCustomerPageRouteProviderPlugin
 {
-    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS_ASYNC_ADD = 'customer/messages/async/add';
-    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS_ASYNC_DELETE = 'customer/messages/async/delete';
+    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS_ASYNC_ADD = 'customer/contact-requests/async/add';
+    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS_ASYNC_DELETE = 'customer/contact-requests/async/delete';
 
     public function addRoutes(RouteCollection $routeCollection): RouteCollection
     {
@@ -40,7 +40,7 @@ class CustomerPageRouteProviderPlugin extends SprykerCustomerPageRouteProviderPl
 
     protected function addCustomerMessagesAsyncAddRoute(RouteCollection $routeCollection): RouteCollection
     {
-        $route = $this->buildRoute('/customer/contact-requests/async/add', 'CustomerPage', 'MessageAsync', 'addAction');
+        $route = $this->buildRoute('/customer/contact-requests/async/add', 'CustomerPage', 'ContactRequestAsync', 'addAction');
         $route = $route->setMethods(Request::METHOD_POST);
         $routeCollection->add(static::ROUTE_CUSTOMER_CONTACT_REQUESTS_ASYNC_ADD, $route);
 
@@ -49,7 +49,7 @@ class CustomerPageRouteProviderPlugin extends SprykerCustomerPageRouteProviderPl
 
     protected function addCustomerMessagesAsyncDeleteRoute(RouteCollection $routeCollection): RouteCollection
     {
-        $route = $this->buildRoute('/customer/contact-requests/async/delete', 'CustomerPage', 'MessageAsync', 'deleteAction');
+        $route = $this->buildRoute('/customer/contact-requests/async/delete', 'CustomerPage', 'ContactRequestAsync', 'deleteAction');
         $route = $route->setMethods(Request::METHOD_POST);
         $routeCollection->add(static::ROUTE_CUSTOMER_CONTACT_REQUESTS_ASYNC_DELETE, $route);
 

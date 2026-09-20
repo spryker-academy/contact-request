@@ -57,8 +57,8 @@ class ContactRequestFacade extends AbstractFacade implements ContactRequestFacad
      *
      * @api
      */
-    public function deleteContactRequest(int $idMessage): bool
+    public function deleteContactRequest(int $idContactRequest): bool
     {
-        return $this->getFactory()->createContactRequestDeleter()->delete($idMessage);
+        return $this->getFactory()->createContactRequestDeleter()->delete($idContactRequest);
     }
 }

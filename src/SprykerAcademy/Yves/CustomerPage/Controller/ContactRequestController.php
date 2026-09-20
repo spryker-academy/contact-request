@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ContactRequestController extends AbstractCustomerController
 {
-    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS = 'customer/messages';
+    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS = 'customer/contact-requests';
 
     public function listAction(Request $request): View|RedirectResponse
     {

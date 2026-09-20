@@ -9,8 +9,8 @@
 {% block breadcrumbs %}{% endblock %}
 
 {% block content %}
-    {% set ajaxProviderClass = 'js-message-async-provider' %}
-    {% set ajaxContentClass = 'js-message-async-content' %}
+    {% set ajaxProviderClass = 'js-contact-request-async-provider' %}
+    {% set ajaxContentClass = 'js-contact-request-async-content' %}
 
     {# Content wrapper - this entire block gets replaced after AJAX submission #}
     <div class="is-position-relative {{ ajaxContentClass }}">
@@ -37,8 +37,8 @@
                                     <form method="post" style="display:inline">
                                         <input type="hidden" name="idContactRequest" value="{{ contactRequest.idContactRequest }}">
                                         <button type="submit"
-                                                data-message-ajax-submit
-                                                formaction="{{ path('customer/messages/async/delete') }}"
+                                                data-contact-request-ajax-submit
+                                                formaction="{{ path('customer/contact-requests/async/delete') }}"
                                                 class="button button--hollow button--alert button--small">
                                             Delete
                                         </button>
@@ -61,8 +61,8 @@
                 </div>
                 {{ form_rest(data.contactRequestForm) }}
                 <button type="submit"
-                        data-message-ajax-submit
-                        formaction="{{ path('customer/messages/async/add') }}"
+                        data-contact-request-ajax-submit
+                        formaction="{{ path('customer/contact-requests/async/add') }}"
                         class="button button--expand-sm-only button--success">
                     Add Contact Request
                 </button>
@@ -98,7 +98,7 @@
     {# AJAX Form Submitter: intercepts form submit and delegates to provider #}
     {% include molecule('ajax-form-submitter') with {
         attributes: {
-            'trigger-attribute': 'data-message-ajax-submit',
+            'trigger-attribute': 'data-contact-request-ajax-submit',
             'provider-class-name': ajaxProviderClass,
             'event': 'click',
         },
