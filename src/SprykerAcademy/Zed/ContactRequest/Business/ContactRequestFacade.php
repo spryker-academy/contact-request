@@ -11,11 +11,11 @@ use Generated\Shared\Transfer\ContactRequestCollectionTransfer;
 use Generated\Shared\Transfer\ContactRequestCriteriaTransfer;
 use Generated\Shared\Transfer\ContactRequestResponseTransfer;
 use Generated\Shared\Transfer\ContactRequestTransfer;
+use SprykerAcademy\Zed\ContactRequest\Business\Deleter\ContactRequestDeleter;
+use SprykerAcademy\Zed\ContactRequest\Business\Reader\ContactRequestReader;
+use SprykerAcademy\Zed\ContactRequest\Business\Writer\ContactRequestWriter;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
-/**
- * @method \SprykerAcademy\Zed\ContactRequest\Business\ContactRequestBusinessFactory getFactory()
- */
 class ContactRequestFacade extends AbstractFacade implements ContactRequestFacadeInterface
 {
     /**
@@ -29,7 +29,7 @@ class ContactRequestFacade extends AbstractFacade implements ContactRequestFacad
      */
     public function createContactRequest(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
     {
-        return $this->getFactory()->createContactRequestWriter()->create($contactRequestTransfer);
+        return $this->getService(ContactRequestWriter::class)->create($contactRequestTransfer);
     }
 
     /**
@@ -39,7 +39,7 @@ class ContactRequestFacade extends AbstractFacade implements ContactRequestFacad
      */
     public function findContactRequest(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
-        return $this->getFactory()->createContactRequestReader()->findContactRequest($contactRequestCriteria);
+        return $this->getService(ContactRequestReader::class)->findContactRequest($contactRequestCriteria);
     }
 
     /**
@@ -49,7 +49,7 @@ class ContactRequestFacade extends AbstractFacade implements ContactRequestFacad
      */
     public function findContactRequestsByCustomer(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestCollectionTransfer
     {
-        return $this->getFactory()->createContactRequestReader()->findContactRequestsByCustomer($contactRequestCriteria);
+        return $this->getService(ContactRequestReader::class)->findContactRequestsByCustomer($contactRequestCriteria);
     }
 
     /**
@@ -59,6 +59,6 @@ class ContactRequestFacade extends AbstractFacade implements ContactRequestFacad
      */
     public function deleteContactRequest(int $idContactRequest): bool
     {
-        return $this->getFactory()->createContactRequestDeleter()->delete($idContactRequest);
+        return $this->getService(ContactRequestDeleter::class)->delete($idContactRequest);
     }
 }
