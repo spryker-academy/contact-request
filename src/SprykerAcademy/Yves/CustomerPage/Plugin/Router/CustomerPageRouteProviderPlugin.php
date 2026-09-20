@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CustomerPageRouteProviderPlugin extends SprykerCustomerPageRouteProviderPlugin
 {
-    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS_DELETE = 'customer/messages/delete';
+    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS_DELETE = 'customer/contact-requests/delete';
 
     public function addRoutes(RouteCollection $routeCollection): RouteCollection
     {

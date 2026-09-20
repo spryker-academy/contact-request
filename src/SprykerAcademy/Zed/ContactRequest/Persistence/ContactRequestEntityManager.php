@@ -30,9 +30,9 @@ class ContactRequestEntityManager extends AbstractEntityManager implements Conta
         );
     }
 
-    public function deleteContactRequest(int $idMessage): bool
+    public function deleteContactRequest(int $idContactRequest): bool
     {
-        $contactRequestEntity = $this->getFactory()->createContactRequestQuery()->findOneByIdContactRequest($idMessage);
+        $contactRequestEntity = $this->getFactory()->createContactRequestQuery()->findOneByIdContactRequest($idContactRequest);
 
         if (!$contactRequestEntity) {
             return false;

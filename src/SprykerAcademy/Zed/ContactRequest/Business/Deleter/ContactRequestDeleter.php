@@ -15,8 +15,8 @@ class ContactRequestDeleter
     {
     }
 
-    public function delete(int $idMessage): bool
+    public function delete(int $idContactRequest): bool
     {
-        return $this->contactRequestEntityManager->deleteContactRequest($idMessage);
+        return $this->contactRequestEntityManager->deleteContactRequest($idContactRequest);
     }
 }

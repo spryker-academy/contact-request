@@ -15,7 +15,7 @@ use SprykerAcademy\Zed\ContactRequest\Business\Deleter\ContactRequestDeleter;
 use SprykerAcademy\Zed\ContactRequest\Persistence\ContactRequestEntityManagerInterface;
 
 /**
- * Exercise 7: Extending Core Modules - Customer Messages
+ * Exercise 7: Extending Core Modules - Customer Contact Requests
  *
  * Verifies schema modifications, transfer updates, gateway exposure,
  * client communication, and CustomerPage extension.
