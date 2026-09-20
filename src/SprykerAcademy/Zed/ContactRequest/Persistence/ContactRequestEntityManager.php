@@ -20,9 +20,8 @@ class ContactRequestEntityManager extends AbstractEntityManager implements Conta
 {
     public function createContactRequest(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
     {
-        $contactRequestEntity = new PyzContactRequest();
-
-        $contactRequestEntity->fromArray($contactRequestTransfer->modifiedToArray());
+        $contactRequestEntity = $this->getFactory()->createContactRequestMapper()
+            ->mapContactRequestTransferToEntity($contactRequestTransfer, new PyzContactRequest());
 
         $contactRequestEntity->save();
 
