@@ -482,10 +482,12 @@ class ExtendingCoreModulesTest extends Unit
 
     public function testContactRequestControllerHasDeleteAction(): void
     {
-        $class = 'SprykerAcademy\Yves\CustomerPage\Controller\ContactRequestController';
+        // The AJAX version moves add/delete into ContactRequestAsyncController (JSON responses); the classic version keeps deleteAction() in ContactRequestController.
+        $classicController = 'SprykerAcademy\Yves\CustomerPage\Controller\ContactRequestController';
+        $asyncController = 'SprykerAcademy\Yves\CustomerPage\Controller\ContactRequestAsyncController';
         $this->assertTrue(
-            method_exists($class, 'deleteAction'),
-            'ContactRequestController must have a deleteAction() method.',
+            method_exists($classicController, 'deleteAction') || method_exists($asyncController, 'deleteAction'),
+            'ContactRequestController (or ContactRequestAsyncController in the AJAX version) must have a deleteAction() method.',
         );
     }
 
