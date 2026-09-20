@@ -20,7 +20,7 @@ use SprykerAcademy\Zed\ContactRequest\Persistence\ContactRequestRepositoryInterf
  */
 class ContactRequestReaderTest extends Unit
 {
-    public function testFindMessageReturnsSuccessfulResponseWhenMessageFound(): void
+    public function testFindContactRequestReturnsSuccessfulResponseWhenContactRequestFound(): void
     {
         $this->assertReaderClassExists();
 
@@ -30,7 +30,7 @@ class ContactRequestReaderTest extends Unit
         $contactRequestTransfer->setMessage('Hello');
 
         $repositoryMock = $this->createMock(ContactRequestRepositoryInterface::class);
-        $repositoryMock->method('findMessage')
+        $repositoryMock->method('findContactRequest')
             ->willReturn($contactRequestTransfer);
 
         $contactRequestCriteria = new ContactRequestCriteriaTransfer();
@@ -43,26 +43,26 @@ class ContactRequestReaderTest extends Unit
         // Assert
         $this->assertTrue(
             $response->getIsSuccessful(),
-            'findContactRequest() must return isSuccessful=true when a message is found.',
+            'findContactRequest() must return isSuccessful=true when a contact request is found.',
         );
         $this->assertNotNull(
-            $response->getMessage(),
-            'findContactRequest() must set the message on the response when found.',
+            $response->getContactRequest(),
+            'findContactRequest() must set the contact request on the response when found.',
         );
         $this->assertSame(
             'Hello',
-            $response->getMessage()->getMessage(),
-            'The returned message must match the one from the Repository.',
+            $response->getContactRequest()->getMessage(),
+            'The returned contact request must match the one from the Repository.',
         );
     }
 
-    public function testFindMessageReturnsUnsuccessfulResponseWhenMessageNotFound(): void
+    public function testFindContactRequestReturnsUnsuccessfulResponseWhenContactRequestNotFound(): void
     {
         $this->assertReaderClassExists();
 
         // Arrange
         $repositoryMock = $this->createMock(ContactRequestRepositoryInterface::class);
-        $repositoryMock->method('findMessage')
+        $repositoryMock->method('findContactRequest')
             ->willReturn(null);
 
         $contactRequestCriteria = new ContactRequestCriteriaTransfer();
@@ -75,7 +75,7 @@ class ContactRequestReaderTest extends Unit
         // Assert
         $this->assertFalse(
             $response->getIsSuccessful(),
-            'findContactRequest() must return isSuccessful=false when no message is found.',
+            'findContactRequest() must return isSuccessful=false when no contact request is found.',
         );
     }
 

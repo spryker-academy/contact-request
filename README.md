@@ -11,7 +11,7 @@ This training module covers the essential Spryker concepts through 4 progressive
 
 1. **Contact Request Back Office** - Create your first Zed controller and view
 2. **Data Transfer Objects** - Implement type-safe data handling with Transfer objects
-3. **Message Table Schema** - Work with Propel ORM and database schemas
+3. **Contact Request Table Schema** - Work with Propel ORM and database schemas
 4. **Module Layers** - Build a complete module with Client, Zed, and Yves layers
 
 ## 🎯 Prerequisites
@@ -71,7 +71,7 @@ http://backoffice.eu.spryker.local/contact-request
 composer require spryker-academy/contact-request:2.0.0-skeleton
 ```
 
-### Module 3: Message Table Schema (v3.0)
+### Module 3: Contact Request Table Schema (v3.0)
 
 **What You'll Build:**
 - Propel schema definition

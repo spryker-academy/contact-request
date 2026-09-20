@@ -45,8 +45,8 @@
             "dev-basics/contact-request-back-office/complete": "1.0.x-dev",
             "dev-basics/data-transfer-object/skeleton": "2.0-dev",
             "dev-basics/data-transfer-object/complete": "2.0.x-dev",
-            "dev-basics/message-table-schema/skeleton": "3.0-dev",
-            "dev-basics/message-table-schema/complete": "3.0.x-dev",
+            "dev-basics/contact-request-table-schema/skeleton": "3.0-dev",
+            "dev-basics/contact-request-table-schema/complete": "3.0.x-dev",
             "dev-basics/module-layers/skeleton": "4.0-dev",
             "dev-basics/module-layers/complete": "4.0.x-dev"
         }
