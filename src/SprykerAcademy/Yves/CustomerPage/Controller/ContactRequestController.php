@@ -22,14 +22,14 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ContactRequestController extends AbstractCustomerController
 {
-    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS = 'customer/messages';
+    public const string ROUTE_CUSTOMER_CONTACT_REQUESTS = 'customer/contact-requests';
 
     public function listAction(Request $request): View|RedirectResponse
     {
         // TODO: Step 1 - Get the logged-in customer using $this->getLoggedInCustomerTransfer()
         // TODO: Step 2 - Create a ContactRequestCriteriaTransfer and set fkCustomer from the customer's ID
-        // TODO: Step 3 - Use getFactory()->getContactRequestClient()->getContactRequestsByCustomer() to fetch messages
-        // TODO: Step 4 - Create the message form using getFactory()->createContactRequestForm()
+        // TODO: Step 3 - Use getFactory()->getContactRequestClient()->getContactRequestsByCustomer() to fetch the contact requests
+        // TODO: Step 4 - Create the contact request form using getFactory()->createContactRequestForm()
         // TODO: Step 5 - Handle the request with $contactRequestForm->handleRequest($request)
         // TODO: Step 6 - If form is submitted and valid, call handleContactRequestFormSubmit()
         // TODO: Step 7 - Return $this->view() with 'contactRequests' and 'contactRequestForm' variables
@@ -42,7 +42,7 @@ class ContactRequestController extends AbstractCustomerController
     {
         // TODO: Get form data, create a ContactRequestTransfer with the message text and fkCustomer
         // TODO: Use getFactory()->getContactRequestClient()->createContactRequest() to persist it
-        // TODO: Redirect back to the messages list using $this->redirectResponseInternal(static::ROUTE_CUSTOMER_CONTACT_REQUESTS)
+        // TODO: Redirect back to the contact requests list using $this->redirectResponseInternal(static::ROUTE_CUSTOMER_CONTACT_REQUESTS)
 
         return $this->redirectResponseInternal(static::ROUTE_CUSTOMER_CONTACT_REQUESTS);
     }

@@ -36,7 +36,7 @@ class ContactRequestController extends AbstractController
         }
 
         return $this->viewResponse([
-            'message' => $contactRequestTransfer,
+            'contactRequest' => $contactRequestTransfer,
         ]);
     }
 }

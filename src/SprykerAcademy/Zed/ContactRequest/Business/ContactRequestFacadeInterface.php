@@ -16,8 +16,8 @@ interface ContactRequestFacadeInterface
 {
     /**
      * Specification:
-     * - Creates and persists message
-     * - Returns message with assigned ID
+     * - Creates and persists a contact request
+     * - Returns the contact request with the assigned ID
      *
      * @api
      *
@@ -29,8 +29,8 @@ interface ContactRequestFacadeInterface
 
     /**
      * Specification:
-     * - Finds message by defined criteria
-     * - Returns a response-transfer which can hold a message if one is found
+     * - Finds a contact request by the defined criteria
+     * - Returns a response-transfer which can hold a contact request if one is found
      *
      * @api
      *
@@ -42,8 +42,8 @@ interface ContactRequestFacadeInterface
 
     /**
      * Specification:
-     * - Finds all messages for a given customer
-     * - Returns a collection of messages
+     * - Finds all contact requests for a given customer
+     * - Returns a collection of contact requests
      *
      * @api
      *
@@ -55,14 +55,14 @@ interface ContactRequestFacadeInterface
 
     /**
      * Specification:
-     * - Deletes a message by ID
+     * - Deletes a contact request by ID
      * - Returns true if deleted, false if not found
      *
      * @api
      *
-     * @param int $idMessage
+     * @param int $idContactRequest
      *
      * @return bool
      */
-    public function deleteContactRequest(int $idMessage): bool;
+    public function deleteContactRequest(int $idContactRequest): bool;
 }

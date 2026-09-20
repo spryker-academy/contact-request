@@ -20,6 +20,6 @@
         <property name="isSuccessful" type="bool"/>
     </transfer>
 
-    <!-- TODO: Add a transfer named "MessageCollection" with a property "messages" of type "Message[]" -->
+    <!-- TODO: Add a transfer named "ContactRequestCollection" with a property "contactRequests" of type "ContactRequest[]" -->
 
 </transfers>

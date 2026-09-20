@@ -18,8 +18,8 @@ interface ContactRequestClientInterface
 {
     /**
      * Specification:
-     * - Finds message by defined criteria
-     * - Returns a response-transfer which can hold a message if one is found
+     * - Finds a contact request by the defined criteria
+     * - Returns a response-transfer which can hold a contact request if one is found
      *
      * @api
      *
@@ -31,8 +31,8 @@ interface ContactRequestClientInterface
 
     /**
      * Specification:
-     * - Creates a new message via Zed
-     * - Returns the persisted message transfer with ID
+     * - Creates a new contact request via Zed
+     * - Returns the persisted contact request transfer with ID
      *
      * @api
      *
@@ -44,8 +44,8 @@ interface ContactRequestClientInterface
 
     /**
      * Specification:
-     * - Finds all messages for a given customer
-     * - Returns a collection of message transfers
+     * - Finds all contact requests for a given customer
+     * - Returns a collection of contact request transfers
      *
      * @api
      *
@@ -57,7 +57,7 @@ interface ContactRequestClientInterface
 
     /**
      * Specification:
-     * - Deletes a message by ID via Zed
+     * - Deletes a contact request by ID via Zed
      * - Returns response with isSuccessful flag
      *
      * @api
