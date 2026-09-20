@@ -17,11 +17,11 @@ class ContactRequestReader
 
     public function findContactRequest(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
-        $contactRequestTransfer = null;// TODO: Use the ContactRequestRepository to find a message
+        $contactRequestTransfer = null;// TODO: Use the ContactRequestRepository to find a contact request
 
         // TODO: Create and return ContactRequestResponseTransfer
-        // and set the properties `isSuccessful` and `message` based on
+        // and set the properties `isSuccessful` and `contactRequest` based on
         // the return value from the ContactRequestRepository
-        // Hint: If no message is returned from the repository `isSuccessful` must be false
+        // Hint: If no contact request is returned from the repository `isSuccessful` must be false
     }
 }

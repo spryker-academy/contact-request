@@ -22,7 +22,7 @@ class ContactRequestClient extends AbstractClient implements ContactRequestClien
 {
     public function findContactRequest(ContactRequestCriteriaTransfer $contactRequestCriteria): ContactRequestResponseTransfer
     {
-        // TODO: Use the factory to create a ContactRequestStub and use it to find a message
+        // TODO: Use the factory to create a ContactRequestStub and use it to find a contact request
         // Hint: You can access the ContactRequestFactory through $this->getFactory()
     }
 }

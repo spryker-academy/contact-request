@@ -16,6 +16,6 @@ class ContactRequestWriter
 
     public function create(ContactRequestTransfer $contactRequestTransfer): ContactRequestTransfer
     {
-        // TODO: Use the contactRequestEntityManager to create an message
+        // TODO: Use the contactRequestEntityManager to create a contact request
     }
 }

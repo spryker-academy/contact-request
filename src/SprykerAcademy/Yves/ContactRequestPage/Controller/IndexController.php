@@ -21,7 +21,7 @@ class IndexController extends AbstractController
         // to find a contact request by a ContactRequestCriteriaTransfer
 
         return $this->view(
-            ['message' => $contactRequestResponseTransfer->getContactRequest()],
+            ['contactRequest' => $contactRequestResponseTransfer->getContactRequest()],
             [],
             '@ContactRequestPage/views/contact-request/get.twig'
         );

@@ -8,7 +8,7 @@ Complete training progression for the Spryker Academy ContactRequest module.
 |--------|---------|--------|----------|-----------|
 | Contact Request Back Office | v1.0 | `ilt/202512.0/basics/contact-request-back-office` | 30 min | ⭐☆☆☆☆ |
 | Data Transfer Objects | v2.0 | `ilt/202512.0/basics/data-transfer-object` | 45 min | ⭐⭐☆☆☆ |
-| Message Table Schema | v3.0 | `ilt/202512.0/basics/message-table-schema` | 1 hour | ⭐⭐☆☆☆ |
+| Contact Request Table Schema | v3.0 | `ilt/202512.0/basics/contact-request-table-schema` | 1 hour | ⭐⭐☆☆☆ |
 | Module Layers | v4.0 | `ilt/202512.0/basics/module-layers` | 2 hours | ⭐⭐⭐☆☆ |
 
 ---
@@ -103,7 +103,7 @@ composer require spryker-academy/contact-request:2.0.0-skeleton
 
 ---
 
-## Module 3: Message Table Schema
+## Module 3: Contact Request Table Schema
 
 ### 🎯 Learning Objectives
 - Define Propel schema in XML
@@ -201,7 +201,7 @@ composer require spryker-academy/contact-request:4.0.0-skeleton
 |----------|-------------|-------------|----------------|
 | Module 1 | v1.0.0-skeleton | v1.0.0-complete | `ilt/202512.0/basics/contact-request-back-office/*` |
 | Module 2 | v2.0.0-skeleton | v2.0.0-complete | `ilt/202512.0/basics/data-transfer-object/*` |
-| Module 3 | v3.0.0-skeleton | v3.0.0-complete | `ilt/202512.0/basics/message-table-schema/*` |
+| Module 3 | v3.0.0-skeleton | v3.0.0-complete | `ilt/202512.0/basics/contact-request-table-schema/*` |
 | Module 4 | v4.0.0-skeleton | v4.0.0-complete | `ilt/202512.0/basics/module-layers/*` |
 
 ---

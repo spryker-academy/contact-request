@@ -17,6 +17,6 @@ class GatewayController extends AbstractGatewayController
 {
     public function findContactRequestAction(ContactRequestCriteriaTransfer $contactRequestCriteria)
     {
-        // TODO: With the help of the facade find a message and return it
+        // TODO: With the help of the facade find a contact request and return it
     }
 }
