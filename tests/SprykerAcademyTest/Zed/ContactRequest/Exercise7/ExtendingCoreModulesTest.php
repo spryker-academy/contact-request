@@ -89,7 +89,7 @@ class ExtendingCoreModulesTest extends Unit
 
     // --- Part 3: GatewayController ---
 
-    public function testGatewayControllerHasCreateMessageAction(): void
+    public function testGatewayControllerHasCreateContactRequestAction(): void
     {
         $class = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\GatewayController';
         $this->assertTrue(class_exists($class), 'GatewayController must exist.');
@@ -99,7 +99,7 @@ class ExtendingCoreModulesTest extends Unit
         );
     }
 
-    public function testGatewayControllerHasGetMessagesByCustomerAction(): void
+    public function testGatewayControllerHasGetContactRequestsByCustomerAction(): void
     {
         $class = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\GatewayController';
         $this->assertTrue(class_exists($class), 'GatewayController must exist.');
@@ -111,7 +111,7 @@ class ExtendingCoreModulesTest extends Unit
 
     // --- Part 4: Client/Stub ---
 
-    public function testStubHasCreateMessageMethod(): void
+    public function testStubHasCreateContactRequestMethod(): void
     {
         $class = 'SprykerAcademy\Client\ContactRequest\Stub\ContactRequestStub';
         $this->assertTrue(class_exists($class), 'ContactRequestStub must exist.');
@@ -121,7 +121,7 @@ class ExtendingCoreModulesTest extends Unit
         );
     }
 
-    public function testStubHasGetMessagesByCustomerMethod(): void
+    public function testStubHasGetContactRequestsByCustomerMethod(): void
     {
         $class = 'SprykerAcademy\Client\ContactRequest\Stub\ContactRequestStub';
         $this->assertTrue(class_exists($class), 'ContactRequestStub must exist.');
@@ -131,7 +131,7 @@ class ExtendingCoreModulesTest extends Unit
         );
     }
 
-    public function testClientHasCreateMessageMethod(): void
+    public function testClientHasCreateContactRequestMethod(): void
     {
         $class = 'SprykerAcademy\Client\ContactRequest\ContactRequestClient';
         $this->assertTrue(class_exists($class), 'ContactRequestClient must exist.');
@@ -141,7 +141,7 @@ class ExtendingCoreModulesTest extends Unit
         );
     }
 
-    public function testClientHasGetMessagesByCustomerMethod(): void
+    public function testClientHasGetContactRequestsByCustomerMethod(): void
     {
         $class = 'SprykerAcademy\Client\ContactRequest\ContactRequestClient';
         $this->assertTrue(class_exists($class), 'ContactRequestClient must exist.');
@@ -214,7 +214,7 @@ class ExtendingCoreModulesTest extends Unit
 
     // --- Part 6: Repository ---
 
-    public function testRepositoryHasFindMessagesByCustomerMethod(): void
+    public function testRepositoryHasFindContactRequestsByCustomerMethod(): void
     {
         $class = 'SprykerAcademy\Zed\ContactRequest\Persistence\ContactRequestRepository';
         $this->assertTrue(class_exists($class), 'ContactRequestRepository must exist.');
@@ -224,7 +224,7 @@ class ExtendingCoreModulesTest extends Unit
         );
     }
 
-    public function testFacadeHasFindMessagesByCustomerMethod(): void
+    public function testFacadeHasFindContactRequestsByCustomerMethod(): void
     {
         $class = 'SprykerAcademy\Zed\ContactRequest\Business\ContactRequestFacade';
         $this->assertTrue(class_exists($class), 'ContactRequestFacade must exist.');
@@ -236,7 +236,7 @@ class ExtendingCoreModulesTest extends Unit
 
     // --- Part 7: Stub Gateway Path Tests ---
 
-    public function testStubCreateMessageCallsCorrectGatewayPath(): void
+    public function testStubCreateContactRequestCallsCorrectGatewayPath(): void
     {
         $contactRequestTransfer = new ContactRequestTransfer();
         $contactRequestTransfer->setMessage('Test message');
@@ -263,7 +263,7 @@ class ExtendingCoreModulesTest extends Unit
         );
     }
 
-    public function testStubGetMessagesByCustomerCallsCorrectGatewayPath(): void
+    public function testStubGetContactRequestsByCustomerCallsCorrectGatewayPath(): void
     {
         $contactRequestCriteria = new ContactRequestCriteriaTransfer();
         $contactRequestCriteria->setFkCustomer(1);
@@ -341,13 +341,13 @@ class ExtendingCoreModulesTest extends Unit
         $this->assertTrue($result, 'ContactRequestDeleter::delete() must return true when entity manager succeeds.');
     }
 
-    public function testFacadeHasDeleteMessageMethod(): void
+    public function testFacadeHasDeleteContactRequestMethod(): void
     {
         $class = 'SprykerAcademy\Zed\ContactRequest\Business\ContactRequestFacade';
         $this->assertTrue(method_exists($class, 'deleteContactRequest'), 'ContactRequestFacade must have a deleteContactRequest() method.');
     }
 
-    public function testGatewayControllerHasDeleteMessageAction(): void
+    public function testGatewayControllerHasDeleteContactRequestAction(): void
     {
         $class = 'SprykerAcademy\Zed\ContactRequest\Communication\Controller\GatewayController';
         $this->assertTrue(
@@ -356,7 +356,7 @@ class ExtendingCoreModulesTest extends Unit
         );
     }
 
-    public function testStubDeleteMessageCallsCorrectGatewayPath(): void
+    public function testStubDeleteContactRequestCallsCorrectGatewayPath(): void
     {
         $contactRequestCriteria = new ContactRequestCriteriaTransfer();
         $contactRequestCriteria->setIdContactRequest(42);
@@ -384,7 +384,7 @@ class ExtendingCoreModulesTest extends Unit
         $this->assertTrue($result->getIsSuccessful());
     }
 
-    public function testClientHasDeleteMessageMethod(): void
+    public function testClientHasDeleteContactRequestMethod(): void
     {
         $class = 'SprykerAcademy\Client\ContactRequest\ContactRequestClient';
         $this->assertTrue(

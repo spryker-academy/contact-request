@@ -23,8 +23,8 @@ class CustomerPageRouteProviderPlugin extends SprykerCustomerPageRouteProviderPl
     {
         $routeCollection = parent::addRoutes($routeCollection);
         $routeCollection = $this->addCustomerContactRequestsRoute($routeCollection);
-        $routeCollection = $this->addCustomerMessagesAsyncAddRoute($routeCollection);
-        $routeCollection = $this->addCustomerMessagesAsyncDeleteRoute($routeCollection);
+        $routeCollection = $this->addCustomerContactRequestsAsyncAddRoute($routeCollection);
+        $routeCollection = $this->addCustomerContactRequestsAsyncDeleteRoute($routeCollection);
 
         return $routeCollection;
     }
@@ -38,7 +38,7 @@ class CustomerPageRouteProviderPlugin extends SprykerCustomerPageRouteProviderPl
         return $routeCollection;
     }
 
-    protected function addCustomerMessagesAsyncAddRoute(RouteCollection $routeCollection): RouteCollection
+    protected function addCustomerContactRequestsAsyncAddRoute(RouteCollection $routeCollection): RouteCollection
     {
         $route = $this->buildRoute('/customer/contact-requests/async/add', 'CustomerPage', 'ContactRequestAsync', 'addAction');
         $route = $route->setMethods(Request::METHOD_POST);
@@ -47,7 +47,7 @@ class CustomerPageRouteProviderPlugin extends SprykerCustomerPageRouteProviderPl
         return $routeCollection;
     }
 
-    protected function addCustomerMessagesAsyncDeleteRoute(RouteCollection $routeCollection): RouteCollection
+    protected function addCustomerContactRequestsAsyncDeleteRoute(RouteCollection $routeCollection): RouteCollection
     {
         $route = $this->buildRoute('/customer/contact-requests/async/delete', 'CustomerPage', 'ContactRequestAsync', 'deleteAction');
         $route = $route->setMethods(Request::METHOD_POST);

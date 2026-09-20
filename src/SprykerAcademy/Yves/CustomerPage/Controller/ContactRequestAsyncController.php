@@ -43,9 +43,9 @@ class ContactRequestAsyncController extends AbstractCustomerController
             ->getContactRequestClient()
             ->createContactRequest($contactRequestTransfer);
 
-        $this->addSuccessMessage('Message added successfully.');
+        $this->addSuccessMessage('Contact request added successfully.');
 
-        return $this->getMessageListJsonResponse($customerTransfer?->getIdCustomer());
+        return $this->getContactRequestListJsonResponse($customerTransfer?->getIdCustomer());
     }
 
     public function deleteAction(Request $request): JsonResponse
@@ -61,12 +61,12 @@ class ContactRequestAsyncController extends AbstractCustomerController
             ->deleteContactRequest($contactRequestCriteria);
 
         if ($response->getIsSuccessful()) {
-            $this->addSuccessMessage('Message deleted.');
+            $this->addSuccessMessage('Contact request deleted.');
         } else {
-            $this->addErrorMessage('Could not delete message.');
+            $this->addErrorMessage('Could not delete the contact request.');
         }
 
-        return $this->getMessageListJsonResponse($customerTransfer?->getIdCustomer());
+        return $this->getContactRequestListJsonResponse($customerTransfer?->getIdCustomer());
     }
 
     protected function getMessagesJsonResponse(): JsonResponse
@@ -76,7 +76,7 @@ class ContactRequestAsyncController extends AbstractCustomerController
         ]);
     }
 
-    protected function getMessageListJsonResponse(int $idCustomer): JsonResponse
+    protected function getContactRequestListJsonResponse(int $idCustomer): JsonResponse
     {
         $contactRequestCriteria = new ContactRequestCriteriaTransfer();
         $contactRequestCriteria->setFkCustomer($idCustomer);
