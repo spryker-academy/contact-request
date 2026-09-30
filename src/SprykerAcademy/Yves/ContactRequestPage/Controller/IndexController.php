@@ -1,12 +1,5 @@
 <?php
 
-/**
- * This file is part of the Spryker Commerce OS.
- * For full license information, please view the LICENSE file that was distributed with this source code.
- */
-
-declare(strict_types = 1);
-
 namespace SprykerAcademy\Yves\ContactRequestPage\Controller;
 
 use Generated\Shared\Transfer\ContactRequestCriteriaTransfer;
@@ -16,18 +9,21 @@ use SprykerShop\Yves\ShopApplication\Controller\AbstractController;
 /**
  * @method \SprykerAcademy\Yves\ContactRequestPage\ContactRequestPageFactory getFactory()
  */
-class ContactRequestController extends AbstractController
+class IndexController extends AbstractController
 {
     public function getAction(int $idContactRequest): View
     {
         $contactRequestCriteriaTransfer = new ContactRequestCriteriaTransfer();
         $contactRequestCriteriaTransfer->setIdContactRequest($idContactRequest);
-        $contactRequestResponseTransfer = $this->getFactory()->getContactRequestClient()->findContactRequest($contactRequestCriteriaTransfer);
+
+        $contactRequestResponseTransfer = $this->getFactory()
+            ->getContactRequestClient()
+            ->findContactRequest($contactRequestCriteriaTransfer);
 
         return $this->view(
             ['contactRequest' => $contactRequestResponseTransfer->getContactRequest()],
             [],
-            '@ContactRequestPage/views/contact-request/get.twig',
+            '@ContactRequestPage/views/contact-request/get.twig'
         );
     }
 }
