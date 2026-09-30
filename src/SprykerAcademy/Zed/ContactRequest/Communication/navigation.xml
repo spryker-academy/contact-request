@@ -3,6 +3,7 @@
     <contact-request>
         <label>Contact Request</label>
         <title>Contact Request</title>
+        <icon>mail</icon>
         <bundle>contact-request</bundle>
         <controller>index</controller>
         <action>index</action>
