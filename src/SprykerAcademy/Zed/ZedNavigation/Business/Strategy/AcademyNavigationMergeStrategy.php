@@ -20,10 +20,6 @@ use Spryker\Zed\ZedNavigation\Business\Strategy\BreadcrumbNavigationMergeStrateg
  */
 class AcademyNavigationMergeStrategy extends BreadcrumbNavigationMergeStrategy
 {
-    public function __construct(protected string $academyZedDirectory)
-    {
-    }
-
     public function mergeNavigation(Config $navigationDefinition, Config $rootDefinition, Config $coreNavigationDefinition): array
     {
         $navigation = parent::mergeNavigation($navigationDefinition, $rootDefinition, $coreNavigationDefinition);
@@ -49,12 +45,21 @@ class AcademyNavigationMergeStrategy extends BreadcrumbNavigationMergeStrategy
     {
         $bundles = [];
 
-        foreach (glob($this->academyZedDirectory . '/*', GLOB_ONLYDIR) ?: [] as $moduleDirectory) {
+        foreach (glob($this->getAcademyZedDirectory() . '/*', GLOB_ONLYDIR) ?: [] as $moduleDirectory) {
             $bundle = strtolower((string)preg_replace('/(?<!^)[A-Z]/', '-$0', basename($moduleDirectory)));
             $bundles[$bundle] = true;
         }
 
         return $bundles;
+    }
+
+    /**
+     * No constructor argument: every class under src/SprykerAcademy/Zed is registered in the Zed
+     * service container, and a scalar argument there cannot be autowired.
+     */
+    protected function getAcademyZedDirectory(): string
+    {
+        return APPLICATION_SOURCE_DIR . '/SprykerAcademy/Zed';
     }
 
     /**
