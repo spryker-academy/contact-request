@@ -12,10 +12,10 @@ namespace SprykerAcademy\Yves\CustomerPage;
 use Generated\Shared\Transfer\ContactRequestTransfer;
 use SprykerAcademy\Client\ContactRequest\ContactRequestClientInterface;
 use SprykerAcademy\Yves\CustomerPage\Form\ContactRequestForm;
-use SprykerShop\Yves\CustomerPage\CustomerPageFactory as SprykerCustomerPageFactory;
+use Pyz\Yves\CustomerPage\CustomerPageFactory as PyzCustomerPageFactory;
 use Symfony\Component\Form\FormInterface;
 
-class CustomerPageFactory extends SprykerCustomerPageFactory
+class CustomerPageFactory extends PyzCustomerPageFactory
 {
     public function getContactRequestClient(): ContactRequestClientInterface
     {
