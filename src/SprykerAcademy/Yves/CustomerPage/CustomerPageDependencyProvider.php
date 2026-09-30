@@ -10,9 +10,9 @@ declare(strict_types = 1);
 namespace SprykerAcademy\Yves\CustomerPage;
 
 use Spryker\Yves\Kernel\Container;
-use SprykerShop\Yves\CustomerPage\CustomerPageDependencyProvider as SprykerCustomerPageDependencyProvider;
+use Pyz\Yves\CustomerPage\CustomerPageDependencyProvider as PyzCustomerPageDependencyProvider;
 
-class CustomerPageDependencyProvider extends SprykerCustomerPageDependencyProvider
+class CustomerPageDependencyProvider extends PyzCustomerPageDependencyProvider
 {
     public const string CLIENT_CONTACT_REQUEST = 'CLIENT_CONTACT_REQUEST';
 
