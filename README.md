@@ -100,21 +100,17 @@ composer require spryker-academy/contact-request:4.0.0-skeleton
 
 ### 1. Register SprykerAcademy Namespace
 
-Add to `config/Shared/config_default.php`:
+Add `SprykerAcademy` to the **project** namespaces in `config/Shared/config_default.php`, before `Pyz`,
+and register it in `composer.json` (`"SprykerAcademy\\": "src/SprykerAcademy/"` under `autoload.psr-4`):
 
 ```php
-<?php
-
-use Spryker\Shared\Kernel\KernelConstants;
-
-$config[KernelConstants::CORE_NAMESPACES] = [
-    'SprykerShop',
-    'SprykerEco',
-    'Spryker',
-    'SprykerSdk',
-    'SprykerAcademy', // Add this line
+$config[KernelConstants::PROJECT_NAMESPACES] = [
+    'SprykerAcademy', // before Pyz: the exercises extend Pyz classes from src/SprykerAcademy
+    'Pyz',
 ];
 ```
+
+The exercise loader of [instructor-exercises](https://github.com/spryker-academy/instructor-exercises) does both for you.
 
 ### 2. Run Code Generation
 
