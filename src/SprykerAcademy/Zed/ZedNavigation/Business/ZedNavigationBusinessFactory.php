@@ -25,6 +25,6 @@ class ZedNavigationBusinessFactory extends SprykerZedNavigationBusinessFactory
 {
     public function createBreadcrumbNavigationMergeStrategy(): NavigationMergeStrategyInterface
     {
-        return new AcademyNavigationMergeStrategy(APPLICATION_SOURCE_DIR . '/SprykerAcademy/Zed');
+        return new AcademyNavigationMergeStrategy();
     }
 }
